@@ -16,18 +16,18 @@ Title <- "Title of your paper goes here"
 
 # pmird
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
 
-This repository contains the data and code for our paper:
+<!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)  --> 
 
-> Authors, (YYYY). _`r Title`_. Name of journal/book <https://doi.org/xxx/xxx>
+pmird (<ins>**p**</ins>eat <ins>**m**</ins>id <ins>**i**</ins>nfrared spectra <ins>**d**</ins>ata compendium) is an R package that has the aim to provide a comprehensive and easily to access data collection of mid infrared spectra of peat and related material (e.g. peat forming vegetation).
 
-Our pre-print is online here:
-
-> Authors, (YYYY). _`r Title`_. Name of journal/book, Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+pmird is designed as community-based project, meaning that everybody can contribute and benefit from this project.
 
 
-### How to cite
+<!-- ### How to cite
 
 Please cite this compendium as:
 
@@ -44,7 +44,7 @@ Or you can install this compendium as an R package, pmird, from GitHub with:
 # install.packages("devtools")
 remotes::install_github("/")
 ```
-
+-->
 
 ### Licenses
 
