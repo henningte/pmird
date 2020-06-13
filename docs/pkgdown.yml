@@ -1,0 +1,11 @@
+pandoc: 2.9.2.1
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  a01-Why-to-contribute: a01-Why-to-contribute.html
+  a02-What-I-plan-to-do-with-the-data: a02-What-I-plan-to-do-with-the-data.html
+  a03-How-to-contribute: a03-How-to-contribute.html
+  a04-Data-dictionary: a04-Data-dictionary.html
+  a05-How-to-access-data: a05-How-to-access-data.html
+last_built: 2020-06-13T10:42Z
+
