@@ -1,0 +1,42 @@
+title: pmird
+url: https://henningte.github.io/pmird/
+template:
+
+articles:
+
+reference:
+
+navbar:
+  structure:
+    left:
+    - home
+    - about
+    - contribute
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/henningte/pmird/
+    articles:
+    reference:
+    about:
+      text: About
+      menu:
+      - text: pmird
+        href: index.html
+      - text: What I plan to do with the data
+        href: articles/a02-What-I-plan-to-do-with-the-data.html
+      - text: How to access data
+        href: articles/a05-How-to-access-data.html
+    contribute:
+      text: Contribute!
+      menu:
+      - text: Why to contribute
+        href: articles/a01-Why-to-contribute.html
+      - text: How to contribute
+        href: articles/a03-How-to-contribute.html
+      - text: Data dictionary for the data templates
+        href: articles/a04-Data-dictionary.html
