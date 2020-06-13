@@ -1,0 +1,106 @@
+---
+title: "How to contribute"
+toc: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = FALSE
+)
+```
+
+```{r packages}
+library(kableExtra)
+```
+
+
+### Who can contribute?
+
+Everybody who is author of a data set suitable for pmird (see next section) and has the agreement of any co-authors to share the data and to make them co-authors can contribute data.
+
+For the data paper, there is a deadline, meaning that only submissions before ... will be considered.
+
+### What data can be contributed?
+
+Regarding sample types, different organic materials, ranging from peat to peat forming vegetation, litter, and dissolved organic matter are suitable.
+
+The minimum data available has to be a mid infrared spectra (MIR) for each sample, whereby this could be FTIR and ATR spectra.
+
+In addition to this, I am interested in any accessory data available, for example: peat ages, radionucleide activities, element contents, descriptors of organic fractions (e.g. polysaccharide content), bulk density, loss on ignition, pore volume, ... . A full list of variables can be found in the manual.
+
+All data have to be licensed under a [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/deed.en) (or comparative) because only under the conditions of this license, it is possible to use the data in a data compendium and to openly share the data compendium.
+
+### How to contribute to the data compendium?
+
+Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [](). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
+
+The zip folder contains the following csv/docx/pdf files:
+
+```{r csv-files}
+rbind(
+  c("general_info.csv", "data set title, license, URL (if
+from a web source), DOI (if available), version (if available), year of creation, a statement how to cite
+the data, acknowledgments that have to be considered, keywords, abstract."),
+c("authors.csv", "author information (names, affiliation, contact author)."),
+c("description.docx", "textual description of the site, methods, experimental manipulations, ..."),
+c("site_info.csv", "Information on sampling sites (name, coordinates)."),
+c("sample_data.csv", "Additional data on peat properties (for example peat age, N content, ...)."),
+c("sample_mir.csv", "The mid infrared spectra (MIR/ATR/FTIR)."),
+c("sample_mir_error.csv", "Optionally: infrared spectra errors."),
+c("data_policy.pdf", "The data policy agreement for this project. This is required since we collect your name, mail address and affiliation.")
+) %>%
+  as.data.frame() %>%
+  kableExtra::kable(col.names = c("file", "description"))
+```
+
+Fill in the data. Please include as much information as possible, especially on the methods used to collect and process the data. You also have to make sure that all co-authors agree in sharing the data and to become co-author of the data package (and data paper if you submit before ...).
+
+Make sure to also fill the data policy agreement. I will contact any co-authors to make sure they also fill in the agreement.
+
+If you have any data that does not fit in the form (for example because there is no field), contact me and we can discuss how to incorporate the data.
+
+Finally, put all the filled templates into a zip archive and send it to henning.teickner@uni-muenster.de. I will notify you that your data has been integrated into the data compendium and provide you regular updates on the process. I will also contact you in case of any questions.
+
+If you have further questions, don't hesitate to contact me!
+
+### How to contribute to the data paper?
+
+If you submit your data before ..., you and all other co-authors of the submitted data set will become co-authors not only of the data compendium, but also of the corresponding data paper.
+
+For organising the data collection and developing the technical infrastructure, as well as providing some data, and because I need to include it into my PhD, I will be the first author. My supervisors will become last authors. All other contributors will be sorted in alphabetical order.
+
+I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author.
+
+### Step-by-step manual
+
+1. Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [](). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
+
+2. Fill in the data policy agreement with your personal data. This is needed since we store your name and affiliation to generate the author list for the data compendium and to contact you.
+
+3. Fill in the data! For the csv files, there is a detailed description of what the fields mean, what to enter and which measurement units to use: ___ todo: data dictionary.
+
+    a. Fill in general information regarding the data set you want to submit (general_info.csv).
+    
+    b. Fill in information regarding all co-authors (authors.csv). This data will be used to create the author list and to contact each co-author.
+    
+    c. Provide a description on the sample and data collection, handling and processing (description.docx). description.docx contains a detailed list of information you may provide. Please describe as many details as possible. The more information you provide the more useful the data will be in the future! You may also add figures, graphs, maps, ... .
+    
+    d. Enter data on the sampling sites where samples were collected (site_info.csv).
+    
+    e. Enter metadata and measurement data on the samples that are not mid infrared spectra (sample_data.csv). Don't be scared by the many fields, I just want to encourage to provide as much information as possible. If you don't have data for a specific field, skip it. For example if you want to enter a present aboveground vegetation sample, you probably will not enter any sampling depth or radiocarbon dating data.
+    
+    f. Enter your mid infrared spectra (sample_mir.csv). There is only one field in the csv file (wavenumber) where you should enter the wavenumber values for the spectra. 
+        
+        - For each sample for which you have a mid infrared spectra, use the value in the field "sample_id" from sample_data.csv as column name and append a column for each mid infrared spectrum you want to add.
+    
+        - I prefer raw data that has not been baseline corrected yet. If your data has been preprocessed, describe this in detail in description.docx.
+    
+        - If you have spetra with differing wavenumber values you can copy sample_mir.csv to sample_mir2.csv and enter the non-matching data in the duplicate. If this happens another time, create another copy.
+        
+        - If you have raw data in a specific file format, please put this in a folder "mir" and include this in the final zip folder you send me (see below).
+        
+    g. Enter data on errors of the mid infrared spectra intensity values (sample_mir_error.csv). The procedure is the same as for sample_mir.csv. If you have information on wavenumber errors, too, you can send this in a separate file (there is no template for this).
+    
+4. Put all files created or collected during steps 3.a to 3.g into a zip archive and send it to henning.teickner@uni-muenster.de. That's it!
