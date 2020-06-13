@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>file:///G:/phd/pmird/docs/index.html/index.html</loc>
+    <loc>https://henningte.github.io/pmird//index.html</loc>
   </url>
   <url>
-    <loc>file:///G:/phd/pmird/docs/index.html/articles/How-to-access-data.html</loc>
+    <loc>https://henningte.github.io/pmird//articles/a01-Why-to-contribute.html</loc>
   </url>
   <url>
-    <loc>file:///G:/phd/pmird/docs/index.html/articles/How-to-contribute.html</loc>
+    <loc>https://henningte.github.io/pmird//articles/a02-What-I-plan-to-do-with-the-data.html</loc>
   </url>
   <url>
-    <loc>file:///G:/phd/pmird/docs/index.html/articles/test.html</loc>
+    <loc>https://henningte.github.io/pmird//articles/a03-How-to-contribute.html</loc>
   </url>
   <url>
-    <loc>file:///G:/phd/pmird/docs/index.html/articles/Why-to-contribute.html</loc>
+    <loc>https://henningte.github.io/pmird//articles/a04-Data-dictionary.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//articles/a05-How-to-access-data.html</loc>
   </url>
 </urlset>

@@ -26,9 +26,9 @@ Title <- "Title of your paper goes here"
 
 pmird is an R package that has the aim to provide a comprehensive and easily to access data collection of mid infrared spectra (MIR) of peat and related material (for example peat forming vegetation or DOM).
 
-pmird is designed as community-based project, meaning that everybody can contribute and benefit from this project. Learn more about [why you should contribute]() to pmird and [how you can use the data]()!
+pmird is designed as community-based project, meaning that everybody can contribute and benefit from this project. Learn more about [why you should contribute](./articles/a01-Why-to-contribute.html) to pmird and [how you can use the data](./articles/a05-How-to-access-data.html)!
 
-pmird is part of my PhD project. I want to be fully transparent on [what I plan to do with the data](./articles/What-I-plan-to-do-with-the-data.html).
+pmird is part of my PhD project. I want to be fully transparent on [what I plan to do with the data](./articles/a02-What-I-plan-to-do-with-the-data.html).
 
 <!-- ### How to cite
 

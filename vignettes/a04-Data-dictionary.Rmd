@@ -1,5 +1,5 @@
 ---
-title: "Data dictionary"
+title: "Data dictionary for the data templates"
 toc: true
 ---
 
@@ -17,7 +17,7 @@ library(kableExtra)
 ```
 
 
-This article is the *data dictionary* for the template files of pmird. The data dictionary contains a description of all fields of the data tables where data contributors can enter their data. In the following, there is a section for each file in [___ todo: fill in]().
+This article is the *data dictionary* for the template files of pmird (the files to use when you want to contibute data). The data dictionary contains a description of all fields of the data tables where data contributors can enter their data. In the following, there is a section for each file in the zip folder with the data template files [data.template.zip](https://github.com/henningte/pmird/data.template.zip).
 
 ## general_info
 
@@ -80,10 +80,10 @@ rbind(c("sample_id", "A numeric id for the sample (starting with 1 and increasin
       c("sampling_altitude", "A numeric value representing the altitude of the exact sampling position [m above sea level].", "543"),
       c("sampling_altitude_err", "A numeric value representing the measurement error of the altitude of the exact sampling position [m above sea level].", "5.2"),
       c("site_id", "A numeric id for the site where the sample was collected. This should be the corresponding value in the file site_info.csv.", "1"),
-      c("sample_depth_lower", "A numeric value representing the depth of the lower boundary of a sample relative to the land surface (e.g. peat surface).", "15 cm"),
-      c("sample_depth_lower_err", "", "0.2 cm"),
-      c("sample_depth_upper", "A numeric value representing the depth of the upper boundary of a sample relative to the land surface (e.g. peat surface).", "12 cm"),
-      c("sample_depth_upper_err", "", "0.2 cm"),
+      c("sample_depth_lower", "A numeric value representing the depth of the lower boundary of a sample relative to the land surface (e.g. peat surface) [cm].", "15"),
+      c("sample_depth_lower_err", "A numeric value representing the measurement error of the lower boundary of a sample [cm].", "0.2"),
+      c("sample_depth_upper", "A numeric value representing the depth of the upper boundary of a sample relative to the land surface (e.g. peat surface) [cm].", "12"),
+      c("sample_depth_upper_err", "A numeric value representing the measurement error of the upper boundary of a sample [cm].", "0.2"),
       c("sample_type", "A string describing the type of the sample. Must be one of 'peat', 'dom', 'vegetation', 'litter'. You can invent a new category if these are not matching.", "peat"),
       c("sample_microhabitat", "A string describing the microhabitat where the sample was collected. For peat, this should be one of 'hummock', 'hollow', 'lawn', 'pond'. In other cases, a custom value can be used.", "hummock"),
       c("sample_treatment", "A string with an description of an experimental tratment if this was applied. By default, this should be 'control', indicating that there was no manipulation. If there was any experimental manipulation, this can be abbreviated by a label (e.g. by a treatment level) that is defined in the textual description of the project (in the file 'description.docx').", "control"),

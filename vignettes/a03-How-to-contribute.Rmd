@@ -15,12 +15,9 @@ knitr::opts_chunk$set(
 library(kableExtra)
 ```
 
-
 ### Who can contribute?
 
 Everybody who is author of a data set suitable for pmird (see next section) and has the agreement of any co-authors to share the data and to make them co-authors can contribute data.
-
-For the data paper, there is a deadline, meaning that only submissions before ... will be considered.
 
 ### What data can be contributed?
 
@@ -34,9 +31,23 @@ All data have to be licensed under a [CC-BY 4.0 license](https://creativecommons
 
 ### How to contribute to the data compendium?
 
-Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [](). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
+Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data.template.zip](https://github.com/henningte/pmird/data.template.zip). This folder contains a set of csv/docx templates where you can enter your data and the data policy agreement for pmird. A detailed manual to fill in the data is provided below.
 
-The zip folder contains the following csv/docx/pdf files:
+If you have questions, don't hesitate to contact me!
+
+### How to contribute to the data paper?
+
+If you submit your data before January 31, 2021, you and all other co-authors of the submitted data set will become co-authors not only of the data compendium, but also of the corresponding data paper.
+
+For organising the data collection and developing the technical infrastructure, as well as providing some data, and because I need to include it into my PhD, I will be the first author. My supervisors will become last authors. All other contributors will be sorted in alphabetical order.
+
+I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author.
+
+### Step-by-step manual
+
+1. Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data.template.zip](https://github.com/henningte/pmird/data.template.zip). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
+
+    The zip folder contains the following csv/docx/pdf files:
 
 ```{r csv-files}
 rbind(
@@ -55,31 +66,9 @@ c("data_policy.pdf", "The data policy agreement for this project. This is requir
   kableExtra::kable(col.names = c("file", "description"))
 ```
 
-Fill in the data. Please include as much information as possible, especially on the methods used to collect and process the data. You also have to make sure that all co-authors agree in sharing the data and to become co-author of the data package (and data paper if you submit before ...).
-
-Make sure to also fill the data policy agreement. I will contact any co-authors to make sure they also fill in the agreement.
-
-If you have any data that does not fit in the form (for example because there is no field), contact me and we can discuss how to incorporate the data.
-
-Finally, put all the filled templates into a zip archive and send it to henning.teickner@uni-muenster.de. I will notify you that your data has been integrated into the data compendium and provide you regular updates on the process. I will also contact you in case of any questions.
-
-If you have further questions, don't hesitate to contact me!
-
-### How to contribute to the data paper?
-
-If you submit your data before ..., you and all other co-authors of the submitted data set will become co-authors not only of the data compendium, but also of the corresponding data paper.
-
-For organising the data collection and developing the technical infrastructure, as well as providing some data, and because I need to include it into my PhD, I will be the first author. My supervisors will become last authors. All other contributors will be sorted in alphabetical order.
-
-I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author.
-
-### Step-by-step manual
-
-1. Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [](). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
-
 2. Fill in the data policy agreement with your personal data. This is needed since we store your name and affiliation to generate the author list for the data compendium and to contact you.
 
-3. Fill in the data! For the csv files, there is a detailed description of what the fields mean, what to enter and which measurement units to use: ___ todo: data dictionary.
+3. Fill in the data! For the csv files, there is a detailed description of what the fields mean, what to enter and which measurement units to use ([data dictionary](a04-Data-dictionary.html)):
 
     a. Fill in general information regarding the data set you want to submit (general_info.csv).
     
