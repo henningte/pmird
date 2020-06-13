@@ -3,6 +3,8 @@
 
 # pmird
 
+**peat mid infrared spectra data compendium**
+
 <!-- badges: start -->
 
 [![Lifecycle:
@@ -11,14 +13,17 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 <!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)  -->
 
-pmird (<ins>**p**</ins>eat <ins>**m**</ins>id <ins>**i**</ins>nfrared
-spectra <ins>**d**</ins>ata compendium) is an R package that has the aim
-to provide a comprehensive and easily to access data collection of mid
-infrared spectra of peat and related material (e.g. peat forming
-vegetation).
+pmird is an R package that has the aim to provide a comprehensive and
+easily to access data collection of mid infrared spectra (MIR) of peat
+and related material (for example peat forming vegetation or DOM).
 
 pmird is designed as community-based project, meaning that everybody can
-contribute and benefit from this project.
+contribute and benefit from this project. Learn more about [why you
+should contribute]() to pmird and [how you can use the data]()\!
+
+pmird is part of my PhD project. I want to be fully transparent on [what
+I plan to do with the
+data](./articles/What-I-plan-to-do-with-the-data.html).
 
 <!-- ### How to cite
 
@@ -47,8 +52,7 @@ remotes::install_github("/")
 
 **Code :** See the [DESCRIPTION](DESCRIPTION) file
 
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
-attribution requested in reuse
+**Data :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ### Contributions
 
