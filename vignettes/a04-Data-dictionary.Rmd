@@ -17,7 +17,7 @@ library(kableExtra)
 ```
 
 
-This article is the *data dictionary* for the template files of pmird (the files to use when you want to contibute data). The data dictionary contains a description of all fields of the data tables where data contributors can enter their data. In the following, there is a section for each csv file in the zip folder with the data template files [data_template.zip](https://github.com/henningte/pmird/data_template.zip).
+This article is the *data dictionary* for the template files of pmird (the files to use when you want to contibute data). The data dictionary contains a description of all fields of the data tables where data contributors can enter their data. In the following, there is a section for each csv file in the zip folder with the data template files [data_template.zip](https://github.com/henningte/pmird/blob/master/data_template.zip).
 
 ## general_info
 

@@ -21,3 +21,5 @@ knitr::opts_chunk$set(
 6. Every contribution makes pmird **more useful for research**, including your own! At the end of my PhD project, pmird will be published such that it can be the basis for future research.
 
 7. I want that **every data contributor is appropriately acknowledged** for his/her effort. For this reason, there is a special citing policy that does not only require to cite pmird, but also your original data set, meaning that your contribution does not perish silently within pmird.
+
+Find out how to contribute [here!](a03-How-to-contribute.html)

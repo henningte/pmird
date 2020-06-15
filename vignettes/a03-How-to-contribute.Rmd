@@ -31,7 +31,7 @@ All data have to be licensed under a [CC-BY 4.0 license](https://creativecommons
 
 ### How to contribute to the data compendium?
 
-Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/data_template.zip). This folder contains a set of csv/docx templates where you can enter your data and the data policy agreement for pmird. A detailed manual to fill in the data is provided below.
+Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/blob/master/data_template.zip). This folder contains a set of csv/docx templates where you can enter your data and the data policy agreement for pmird. A detailed manual to fill in the data is provided below.
 
 If you have questions, don't hesitate to contact me!
 
@@ -45,7 +45,7 @@ I will draft the paper and consider your data description during this process. F
 
 ### Step-by-step manual
 
-1. Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/data_template.zip). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
+1. Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/blob/master/data_template.zip). This folder contains a detailed manual and a set of csv/docx templates where you can enter your data.
 
     The zip folder contains the following csv/docx/pdf files:
 
