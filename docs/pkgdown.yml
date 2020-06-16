@@ -10,7 +10,8 @@ articles:
   a06-Authorship-guidelines-for-pmird: a06-Authorship-guidelines-for-pmird.html
   a07-Authorship-guidelines-for-the-data-paper: a07-Authorship-guidelines-for-the-data-paper.html
   a08-News: a08-News.html
-last_built: 2020-06-16T10:47Z
+  a09-Sources: a09-Sources.html
+last_built: 2020-06-16T11:58Z
 urls:
   reference: https://henningte.github.io/pmird//reference
   article: https://henningte.github.io/pmird//articles

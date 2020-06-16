@@ -1,0 +1,23 @@
+---
+title: "Sources"
+output: 
+  html_document:
+    toc: true
+bibliography: "./../inst/references_web.bib"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = FALSE
+)
+```
+
+The list of metadata and data to collect are inspired by @Givelet.2004, @CourtneyMustaphi.2019, @Kra.1986 and @Jones.2019.
+
+The general collaborative strategy is derived from @Oliver.2018.
+
+The package and website are build using R [@RCoreTeam.2020],  usethis [@Wickham.2020], devtools [@Wickham.2020b], roxygen2 [@Wickham.2020c], pkgdown [@Wickham.2020d], rrtools [@Marwick.2019], rmarkdown [@Allaire.2018], knitr [@Xie.2018], kableExtra [@Zhu.2019] and RStudio [@RStudioTeam.2020].
+
+## References

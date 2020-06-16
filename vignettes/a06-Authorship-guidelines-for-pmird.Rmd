@@ -33,23 +33,23 @@ If you feel that you are not appropriately acknowledged or that some of the guid
 
 ```{r activities}
 rbind( 
-  c("conceived the idea/concept for the data compendium", "Henning Teicker"),
-  c("designed the data compendium", "Henning Teicker"),
-  c("managed and supervised data contributions and data collection", "Henning Teicker"),
+  c("a) Conceived the idea/concept for the data compendium", "Henning Teicker"),
+  c("b) Designed the data compendium", "Henning Teicker"),
+  c("c) Managed and supervised data contributions and data collection", "Henning Teicker"),
   #
-  c("compiled or synthesised data (this also includes a textual interpretation/evaluation of the data and data quality)", ""),
-  c("developed code for managing and accessing the data compendium", ""),
+  c("d) Contributed or synthesised data (this also includes a textual interpretation/evaluation of the data and data quality)", ""),
+  c("e) Developed code for managing and accessing the data compendium", ""),
   #
-  c("supervised the project and data compendium development", ""),
+  c("f) Supervised the project and data compendium development", ""),
   # 
-  c("Other contributions not listed above (e.g., person has a light-bulb moment that completely changes scope/slant of project), please specify", "")
+  c("g) Other contributions not listed above (e.g., person has a light-bulb moment that completely changes scope/slant of project), please specify", "")
   ) %>%
   as.data.frame() %>%
-  kableExtra::kable(col.names = c("activity", "author contributions")) %>%
+  kableExtra::kable(col.names = c("Activity", "Author contributions")) %>%
   kableExtra::pack_rows("Category 1: CONCEPT AND DESIGN", 1, 3) %>%
   kableExtra::pack_rows("Category 2: DATA AND INFRASTRUCTURE", 4, 5) %>%
   kableExtra::pack_rows("Category 3: SUPERVISING AND MENTORING", 6, 6) %>%
-  kableExtra::pack_rows("Category 3: OTHER", 7, 7)
+  kableExtra::pack_rows("Category 4: OTHER", 7, 7)
   
 ```
 

@@ -32,6 +32,8 @@ navbar:
         href: articles/a02-What-I-plan-to-do-with-the-data.html
       - text: How to access data
         href: articles/a05-How-to-access-data.html
+      - text: Sources
+        href: articles/a09-Sources.html
     contribute:
       text: Contribute!
       menu:
