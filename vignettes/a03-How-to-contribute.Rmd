@@ -25,7 +25,7 @@ Regarding sample types, different organic materials, ranging from peat to peat f
 
 The minimum data available has to be a mid infrared spectra (MIR) for each sample, whereby this could be FTIR and ATR spectra.
 
-In addition to this, I am interested in any accessory data available, for example: peat ages, radionucleide activities, element contents, descriptors of organic fractions (e.g. polysaccharide content), bulk density, loss on ignition, pore volume, ... . A full list of variables can be found in the manual.
+In addition to this, I am interested in any accessory data available, for example: peat ages, radionucleide activities, element contents, descriptors of organic fractions (e.g. polysaccharide content), bulk density, loss on ignition, pore volume, ... . A full list of variables can be found in the [data dictionary](a04-Data-dictionary.html).
 
 All data have to be licensed under a [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/deed.en) (or comparative) because only under the conditions of this license, it is possible to use the data in a data compendium and to openly share the data compendium.
 
@@ -78,7 +78,7 @@ c("data_policy.pdf", "The data policy agreement for this project. This is requir
     
     d. Enter data on the sampling sites where samples were collected (site_info.csv).
     
-    e. Enter metadata and measurement data on the samples that are not mid infrared spectra (sample_data.csv). Don't be scared by the many fields, I just want to encourage to provide as much information as possible. If you don't have data for a specific field, skip it. For example if you want to enter a present aboveground vegetation sample, you probably will not enter any sampling depth or radiocarbon dating data.
+    e. Enter metadata and measurement data on the samples that are not mid infrared spectra (sample_data.csv). Don't be scared by the many fields, I just want to encourage to provide as much information as possible. If you don't have data for a specific field, skip it. For example if you want to enter a present aboveground vegetation sample, you probably will not enter any sampling depth or radiocarbon dating data. If you have data that does not fit in any field, you can provide it in an additional csv file with a separate description (for example paleovegetation data that is not considered in the template file).
     
     f. Enter your mid infrared spectra (sample_mir.csv). There is only one field in the csv file (wavenumber) where you should enter the wavenumber values for the spectra. 
         
