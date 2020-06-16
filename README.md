@@ -3,6 +3,10 @@
 
 # pmird
 
+<!-- [ -->
+
+<!--]{style="float:right"} -->
+
 **peat mid infrared spectra data compendium**
 
 <!-- badges: start -->
@@ -32,7 +36,7 @@ data](https://henningte.github.io/pmird/articles/a02-What-I-plan-to-do-with-the-
 
 Please cite this compendium as:
 
-> Authors, (2020). _Compendium of R code and data for Title of your paper goes here_. Accessed 15 Jun 2020. Online at <https://doi.org/xxx/xxx>
+> Authors, (2020). _Compendium of R code and data for Title of your paper goes here_. Accessed 16 Jun 2020. Online at <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
@@ -53,13 +57,20 @@ remotes::install_github("/")
 **Text and figures :**
 [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
+**Code :** See the
+[DESCRIPTION](https://github.com/henningte/pmird/blob/master/DESCRIPTION)
+file
 
 **Data :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ### Contributions
 
-We welcome contributions from everyone. Before you get started, please
-see our [contributor guidelines](CONTRIBUTING.md). Please note that this
-project is released with a [Contributor Code of Conduct](CONDUCT.md). By
+We welcome contributions from everyone. Please note that this project is
+released with a [Contributor Code of Conduct](CONDUCT.md). By
 participating in this project you agree to abide by its terms.
+
+If you want to contribute data to pmird, please see [How to
+contribute](https://henningte.github.io/pmird/articles/a03-How-to-contribute.html).
+
+If you want to contribute to the code, please see our [code contributor
+guidelines](CONTRIBUTING.md).

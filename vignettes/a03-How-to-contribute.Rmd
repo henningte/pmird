@@ -31,17 +31,17 @@ All data have to be licensed under a [CC-BY 4.0 license](https://creativecommons
 
 ### How to contribute to the data compendium?
 
-Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/blob/master/data_template.zip). This folder contains a set of csv/docx templates where you can enter your data and the data policy agreement for pmird. A detailed manual to fill in the data is provided below.
+Go to [the project's GitHub repository](https://github.com/henningte/pmird) and download the zip folder [data_template.zip](https://github.com/henningte/pmird/blob/master/data_template.zip). This folder contains a set of csv/docx templates where you can enter your data and the data policy agreement for pmird. A detailed manual to fill in the data is provided below. Note that any data contributor must agree to the [authorship guidelines for the data compendium](a06-Authorship-guidelines-for-pmird.html)
 
 If you have questions, don't hesitate to contact me!
 
 ### How to contribute to the data paper?
 
-If you submit your data before January 31, 2021, you and all other co-authors of the submitted data set will become co-authors not only of the data compendium, but also of the corresponding data paper.
+If you submit your data before January 31, 2021, you send a request to become co-author of the data paper and you agree to the [authorship guidelines for the data paper](a07-Authorship-guidelines-for-the-data-paper.html), you will not only of the data compendium, but also of the corresponding data paper.
 
 For organising the data collection and developing the technical infrastructure, as well as providing some data, and because I need to include it into my PhD, I will be the first author. My supervisors will become last authors. All other contributors will be sorted in alphabetical order.
 
-I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author.
+I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author and you will be moved to the acknowledgements section.
 
 ### Step-by-step manual
 
@@ -66,7 +66,7 @@ c("data_policy.pdf", "The data policy agreement for this project. This is requir
   kableExtra::kable(col.names = c("file", "description"))
 ```
 
-2. Fill in the data policy agreement with your personal data. This is needed since we store your name and affiliation to generate the author list for the data compendium and to contact you.
+2. Fill in the data policy agreement with your personal data. This is needed since we store your name and affiliation to generate the author list for the data compendium and to contact you. Note that as a data contributor, you also agree to the [authorship guidelines for the data compendium](a06-Authorship-guidelines-for-pmird.html).
 
 3. Fill in the data! For the csv files, there is a detailed description of what the fields mean, what to enter and which measurement units to use ([data dictionary](a04-Data-dictionary.html)):
 
@@ -92,4 +92,4 @@ c("data_policy.pdf", "The data policy agreement for this project. This is requir
         
     g. Enter data on errors of the mid infrared spectra intensity values (sample_mir_error.csv). The procedure is the same as for sample_mir.csv. If you have information on wavenumber errors, too, you can send this in a separate file (there is no template for this).
     
-4. Put all files created or collected during steps 3.a to 3.g into a zip archive and send it to henning.teickner@uni-muenster.de. That's it!
+4. Put all files created or collected during steps 3.a to 3.g into a zip archive and send it to henning.teickner@uni-muenster.de. In the e-mail, indicate if you want to be also co-author of the data paper or only the data compendium. Make sure that you agree to the [authorship guidelines for the data paper](a07-Authorship-guidelines-for-the-data-paper.html) if you want to become co-author of it. That's it!

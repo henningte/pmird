@@ -1,0 +1,92 @@
+---
+title: "Authorship guidelines for pmird"
+output: 
+  html_document:
+    toc: true
+bibliography: "./../inst/references_web.bib"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = FALSE
+)
+```
+
+```{r packages}
+library(magrittr)
+library(kableExtra)
+```
+
+## Introduction
+
+This document is intended to foster an open dialog on authorship to the data compendium pmird. Note that there are separate [authorship guidelines for the data paper on pmird](a07-Authorship-guidelines-for-the-data-paper.html). The document is based on the authorship guidelines template document developed by @Oliver.2018.
+
+In the table below, all tasks for the succesfull development of pmird are listed. In the right column, the names of all current contributors are listed for the respective task. This document is continuously updated if new data contributors provide data and you can check if your contribution is appropriately acknowledged. 
+
+The information provided in this table are the basis for the authorship order and the description of inidividual contributions to pmird according to the guidelines listed below.
+
+If you feel that you are not appropriately acknowledged or that some of the guidelines are not acceptable for you, contact henning.teickner@uni-muenster.de or open an [issue](https://github.com/henningte/pmird/issues) and describe your problem. 
+
+## Activities
+
+```{r activities}
+rbind( 
+  c("conceived the idea/concept for the data compendium", "Henning Teicker"),
+  c("designed the data compendium", "Henning Teicker"),
+  c("managed and supervised data contributions and data collection", "Henning Teicker"),
+  #
+  c("compiled or synthesised data (this also includes a textual interpretation/evaluation of the data and data quality)", ""),
+  c("developed code for managing and accessing the data compendium", ""),
+  #
+  c("supervised the project and data compendium development", ""),
+  # 
+  c("Other contributions not listed above (e.g., person has a light-bulb moment that completely changes scope/slant of project), please specify", "")
+  ) %>%
+  as.data.frame() %>%
+  kableExtra::kable(col.names = c("activity", "author contributions")) %>%
+  kableExtra::pack_rows("Category 1: CONCEPT AND DESIGN", 1, 3) %>%
+  kableExtra::pack_rows("Category 2: DATA AND INFRASTRUCTURE", 4, 5) %>%
+  kableExtra::pack_rows("Category 3: SUPERVISING AND MENTORING", 6, 6) %>%
+  kableExtra::pack_rows("Category 3: OTHER", 7, 7)
+  
+```
+
+## Guidelines
+
+The following guidelines are copied and partly adjusted from @Oliver.2018.
+
+### Guiding principles of authorship for manuscripts originating from this project
+
+1. All members of a research team should have the option to participate in most efforts.
+
+2. Agreeing to serve as co-author means that you have agreed to actively participate in the effort, and that you have the time available to ensure forward progression of the effort (i.e., you will not slow the research effort down). At any stage, if a co-author is not able to contribute to the effort in a timely manner, then it is recommended that they step down from the research effort.
+
+3. All co-authors agree to the terms in this authorship agreement.
+
+4. Lead- or co-lead-authors are responsible for communicating authorship guidelines to their coauthors early in the process, and throughout the process.
+
+5. Lead authors or co-lead-authors are expected to actively communicate with co-authors throughout
+the process so that co-authors can contribute and know where the effort stands.
+
+6. We do not believe in the practice of honorary authorship (i.e., gift authorship, ghost authorship, or authorship in the name of inclusion; where people are added as an author just because they are part of the project, or the lead-PI or co-PIs, to avoid team conflict, in the name of generosity, or other such reasons without significantly contributing to and participating in the effort). This practice devalues the contributions of co-authors in general and it goes against the principles and strategies outlined in this document.
+
+
+### General strategy for assigning authorship in multi-authored publications
+
+1. **Types of contributions of co-authors:** We provide a list of common author contributions, in four main categories (see above). This list is not intended to be exhaustive, and additional contributions can be added to each section.
+
+2. **Total number of contributions that constitute co-authorship:** Although it is extremely difficult to put a number on the total contributions made by an author, we propose that the minimum required action to become co-author is to participate in at least one activity listed above. This means especially that all data contributors become co-authors of pmird.
+
+3. **Mid-project addition of co-authors:** In some cases, co-authors may join the effort later than others, particularly if expertise is needed. In these cases, the new co-author is still held to the standards laid out in this document.
+
+4. **Co-authors are held accountable for the content of their contributions:** This idea provides an important distinction between a co-author and someone who is acknowledged. 
+
+5. **An author-contribution paragraph must be inluded alongside the published data compendium:** This step is important to ensure that all co-authors (particularly earlycareer individuals) get recognition for the contributions that they make to the project’s highly collaborative efforts. This paragraph is the table with activities and listed contributions above.
+
+6. **Authorship order:** The norm in our team and in ecology in general is for the lead (or co-lead) author(s) (Henning Teickner) to be listed first, and the co-authors listed thereafter. Since the majority of expected co-authors are assumed to be data contributors and it is difficult to quantify different contributions, we suggest to order the co-authors in alphabetical order, with exception to supervising co-authors listed as last authors. The description of the ordering style should be noted in the author-contribution statement.
+
+7. **Conflict resolution:** If team-members do not perform the basic duties of a co-author described above, and agreed upon, then it is recommended that they step down from the research effort at any stage. If a lead-author feels that a co-author (or vice versa) is being unresponsive, but is not stepping down, then an ad-hoc group of 3 team members will be convened to evaluate the issue (including at least one early-career individual, if possible).
+
+## Sources

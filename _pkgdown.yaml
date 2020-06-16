@@ -12,6 +12,7 @@ navbar:
     - home
     - about
     - contribute
+    - news
     right: github
   components:
     home:
@@ -40,3 +41,12 @@ navbar:
         href: articles/a03-How-to-contribute.html
       - text: Data dictionary for the data templates
         href: articles/a04-Data-dictionary.html
+      - text: Authorship guidelines for pmird
+        href: articles/a06-Authorship-guidelines-for-pmird.html
+      - text: Authorship guidelines for the data paper
+        href: articles/a07-Authorship-guidelines-for-the-data-paper.html
+    news:
+      text: News
+      menu:
+      - text: News
+        href: articles/a08-News.html

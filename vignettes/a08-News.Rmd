@@ -1,0 +1,14 @@
+---
+title: "News"
+toc: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = FALSE
+)
+```
+
+Currently, there are no news.

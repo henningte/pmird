@@ -30,7 +30,7 @@ rbind( c("data_title", "A string with the title of the data set.", "Mid infrared
        c("data_doi", "A string with the digital object identifier (DOI) of the data set (fill in if available).", "df345.345.1233"),
        c("data_citing_statement", "A string with a verbal statement of how to cite the data set. This will be used to automatically generate citations of the data set in pmird.", "John Doe (2012): Mid infrared spectra and physicochemical data of two peat cores from Alaskian bogs. URL: doerepo.org/data/df345.345.1233. DOI: df345.345.1233."),
        c("data_abstract", "A string with a verbal description summarising the data set.", "..."),
-       c("data_keywords", 'A string with keywords for the data set. Different keywords have to be separated with ";". ___ todo: search if there is a common dictionary for terms to use.', "peat; FTIR; Alaska; bog; radiocarbon dating; nitrogen; carbon; oxygen; bulk density;")) %>%
+       c("data_keywords", 'A string with keywords for the data set. Different keywords have to be separated with ";".', "peat; FTIR; Alaska; bog; radiocarbon dating; nitrogen; carbon; oxygen; bulk density;")) %>%
   as.data.frame() %>%
   kableExtra::kable(col.names = c("field", "description", "example")) %>%
   kableExtra::column_spec(2, width = "25em") %>%

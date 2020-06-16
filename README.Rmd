@@ -14,9 +14,13 @@ knitr::opts_chunk$set(
 Title <- "Title of your paper goes here"
 ```
 
-# pmird
+# pmird 
+<!-- [ -->
+```{r pmird_icon, echo = FALSE, eval = FALSE}
+knitr::include_graphics("./man/figures/pmird_icon.svg")
+```
+<!--]{style="float:right"} -->
 **peat mid infrared spectra data compendium**
-
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -53,11 +57,14 @@ remotes::install_github("/")
 
 **Text and figures :**  [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
+**Code :** See the [DESCRIPTION](https://github.com/henningte/pmird/blob/master/DESCRIPTION) file
 
 **Data :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ### Contributions
 
-We welcome contributions from everyone. Before you get started, please see our [contributor guidelines](CONTRIBUTING.md). Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+We welcome contributions from everyone. Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
+If you want to contribute data to pmird, please see [How to contribute](https://henningte.github.io/pmird/articles/a03-How-to-contribute.html).
+
+If you want to contribute to the code, please see our [code contributor guidelines](CONTRIBUTING.md).

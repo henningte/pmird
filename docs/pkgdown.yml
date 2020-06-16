@@ -7,7 +7,10 @@ articles:
   a03-How-to-contribute: a03-How-to-contribute.html
   a04-Data-dictionary: a04-Data-dictionary.html
   a05-How-to-access-data: a05-How-to-access-data.html
-last_built: 2020-06-13T12:10Z
+  a06-Authorship-guidelines-for-pmird: a06-Authorship-guidelines-for-pmird.html
+  a07-Authorship-guidelines-for-the-data-paper: a07-Authorship-guidelines-for-the-data-paper.html
+  a08-News: a08-News.html
+last_built: 2020-06-16T10:47Z
 urls:
   reference: https://henningte.github.io/pmird//reference
   article: https://henningte.github.io/pmird//articles
