@@ -13,4 +13,4 @@ knitr::opts_chunk$set(
 
 ### 2020-06-22
 
-I've updated the [authorship guidelines for the data paper](a07-Authorship-guidelines-for-the-data-paper.html) with recommendations from my supervisor to make better facilitate collaboration on the project.
+I've updated the [authorship guidelines for the data paper](a07-Authorship-guidelines-for-the-data-paper.html) with recommendations from my supervisor to better facilitate collaboration on the project.
