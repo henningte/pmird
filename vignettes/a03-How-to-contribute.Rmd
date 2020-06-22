@@ -41,7 +41,7 @@ If you submit your data before January 31, 2021, you send a request to become co
 
 For organising the data collection and developing the technical infrastructure, as well as providing some data, and because I need to include it into my PhD, I will be the first author. My supervisors will become last authors. All other contributors will be sorted in alphabetical order.
 
-I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission. You need to reply early enough (within four weeks) to this, else it would be unethical to include you as co-author and you will be moved to the acknowledgements section.
+I will draft the paper and consider your data description during this process. Finally, I will request you to review the manuscript before submission.
 
 ### Step-by-step manual
 
