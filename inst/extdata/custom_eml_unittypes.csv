@@ -1,0 +1,8 @@
+"id_unittype","dimension","power"
+"amountOfSubstanceEnergy","energy","NA"
+"amountOfSubstanceEnergy","amount",-1
+"entropy","energy","NA"
+"entropy","amount",-1
+"entropy","temperature",-1
+"radionucleotideActivityPerMass","time",-1
+"radionucleotideActivityPerMass","mass",-1

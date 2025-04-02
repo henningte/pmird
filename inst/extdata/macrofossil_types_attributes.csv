@@ -1,0 +1,6 @@
+"attribute_name","attribute_definition","example_value","unit","measurement_scale","number_type","bounds_minimum","bounds_maximum","format_string"
+"id_macrofossil_type","A numeric id for the macrofossil type (starting with 1).","1","NA","interval","natural",1,"INF","NA"
+"macrofossil_type","A string representing the macrofossil type. This can be a custom value, such as 'vegetation', 'ash', 'charcoal', 'unidentifiable organic matter'.","vegetation","NA","nominal","NA","NA","NA","NA"
+"macrofossil_size_lower","A numeric value representing the lower size bound for the macrofossil type (e.g. if only macrocharcoal particles larger than 1mm were considered) [mm].","1","mm","ratio","real",0,"INF","NA"
+"macrofossil_size_upper","A numeric value representing the upper size bound for the macrofossil type (e.g. if wood fragments were classified by size) [mm].","5","mm","ratio","real",0,"INF","NA"
+"macrofossil_taxon_organ","The same as attribute 'taxon_organ', but for macrofossils.","seed","NA","nominal","NA","NA","NA","NA"

@@ -1,0 +1,35 @@
+attribute_name,attribute_definition,example_value,unit,measurement_scale,number_type,bounds_minimum,bounds_maximum,format_string
+id_measurement,A numeric id for the measurment the metadata belongs to (starting with 1 and increasing by 1).,1,NA,interval,natural,1,INF,NA
+scan_number,An integer value representing the number of scans. ,32,NA,ratio,natural,1,INF,NA
+detector_gain_factor,A numeric value representing the detection gain factor.,1.5,NA,ratio,real,INF,INF,NA
+scan_speed,A numeric value representing the scan speed.,5,kHz,ratio,real,0,INF,NA
+laser_wavenumber,A numeric value representing the wavenumber of the laser.,"15798,16",NA,ratio,real,0,INF,NA
+detector_name,A string representing the name of the detector.,INT1,NA,nominal,NA,NA,NA,NA
+source_name,A string representing the name of the infrared radiation source.,SRC1,NA,nominal,NA,NA,NA,NA
+purge_delay,A numeric value representing the duration of purge delay before a measurement in seconds.,180,s,ratio,real,0,INF,NA
+zero_filling_factor,An integer value representing the zero filling factor.,2,NA,interval,integer,INF,INF,NA
+apodisation_function,A string representing the name of the apodisation function.,NB Medium,NA,nominal,NA,NA,NA,NA
+exponentiation_factor,A numeric value representing the exponentiation factor used for file compression.,-128,NA,interval,integer,INF,INF,NA
+data_point_number,A numeric value representing the number of data points in the spectrum.,1765,NA,ratio,natural,0,INF,NA
+x_variable_type,A string representing the type of the x variable.,tilde(nu)/cm^-1 ,NA,nominal,NA,NA,NA,NA
+y_variable_type,A string representing the type of the y variable.,A,NA,nominal,NA,NA,NA,NA
+measurement_date,A datetime representing the dat and time when the spectrum was measured.,2021-02-01 09:00:00 ,NA,date_time,NA,NA,NA,YYYY-MM-DD
+measurement_device,A string representing the name of the measurement device.,Agilent,NA,nominal,NA,NA,NA,NA
+measurement_date_reference,A datetime representing the dat and time when the reference (background) spectrum was measured when a separate background spectrum is available in the file.,2021-02-01 09:00:00 ,NA,date_time,NA,NA,NA,YYYY-MM-DD
+rep_no,An integer value representing the sample repetition number.,0,NA,ratio,whole,0,INF,NA
+beamsplitter_name,A string representing the name of the beamsplitter.,NA,NA,nominal,NA,NA,NA,NA
+temperature_scanner_sample,A numeric value representing the temperature of the scanner during the measurement of the sample.,NA,K,ratio,real,INF,INF,NA
+temperature_scanner_reference,A numeric value representing the temperature of the scanner during the measurement of the reference (background).,NA,K,ratio,real,INF,INF,NA
+humidity_relative_sample,A numeric value representing the relative humidity during measurement of the sample.,NA,kPa/kPa,ratio,real,0,INF,NA
+humidity_relative_reference,A numeric value representing the relative humidity during measurement of the reference (background).,NA,kPa/kPa,ratio,real,0,INF,NA
+humidity_absolute_sample,A numeric value representing the absolute humidity during measurement of the sample.,NA,g/L,ratio,real,0,INF,NA
+humidity_absolute_reference,A numeric value representing the absolute humidity during measurement of the reference (background).,NA,g/L,ratio,real,0,INF,NA
+mir_mode,"A string representing the measurement mode in which the mid infrared spectra were measured. One of “absorbance_ftir”, “atr_ftir”, “dr_ftir”.",absorcance_ftir,NA,nominal,NA,NA,NA,NA
+is_baseline_corrected,A logical value indicating if a spectrum is already baseline corrected (TRUE) or not (FALSE).,TRUE,NA,nominal,NA,NA,NA,NA
+noise_level_relative,A numeric value representing the relative noise level of a mid infrared spectrum.,4,NA,interval,real,INF,INF,NA
+mir_water_vapor_contribution_relative,A numeric value representing the relative water vapor contribution to a mid infrared spectrum. This is the slope of an ordinary least squares regression model fitting a reference water vapor spectrum to a specified range of the spectrum.,0.34,NA,interval,real,INF,INF,NA
+mir_co2_contribution_relative,A numeric value representing the relative carbon dioxide contribution to a mid infrared spectrum. This is the slope of an ordinary least squares regression model fitting a reference carbon dioxide spectrum to a specified range of the spectrum.,0.23,NA,interval,real,INF,INF,NA
+mir_water_vapor_contribution_relative_sd,A numeric value representing an uncertainty estimate for the relative water vapor contribution to a mid infrared spectrum. This is the standard deviation of the slope of an ordinary least squares regression model fitting a reference water vapor spectrum to a specified range of the spectrum.,0.0445,NA,ratio,real,0,INF,NA
+mir_co2_contribution_relative_sd,A numeric value representing an uncertainty estimate for the relative carbon dioxide contribution to a mid infrared spectrum. This is the standard deviation of the slope of an ordinary least squares regression model fitting a reference carbon dioxide spectrum to a specified range of the spectrum.,0.0445,NA,ratio,real,0,INF,NA
+x_variable_min,A numeric value representing the minimum x variable value of each spectrum.,650,1/cm,ratio,real,0,INF,NA
+x_variable_max,A numeric value representing the maximum x variable value of each spectrum.,3995,1/cm,ratio,real,0,INF,NA

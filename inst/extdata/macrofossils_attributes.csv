@@ -1,0 +1,7 @@
+"attribute_name","attribute_definition","example_value","unit","measurement_scale","number_type","bounds_minimum","bounds_maximum","format_string"
+"id_measurement","A numeric id for the measurement the data belongs to (starting with 1 and increasing by 1).","1","NA","interval","natural",1,"INF","NA"
+"id_macrofossil_type","A numeric id for the macrofossil type (starting with 1).","1","NA","interval","natural",1,"INF","NA"
+"macrofossil_volume_fraction","A numeric value representing the volumetric fraction of a specific macrofossil type in the peat sample [L/L]","0.2","L/L","ratio","real",0,1,"NA"
+"macrofossil_volume_fraction_err","A numeric value representing measurement error for the volumetric fraction of a specific macrofossil type in the peat sample [L/L]","0.5","L/L","ratio","real",0,1,"NA"
+"macrofossil_count","A numeric value representing a count for a specific macrofossil type (e.g. Carex seeds) divided by the volume of peat for which the macrofossil type was counted [1/cm^3].","12","NA","interval","real",0,"INF","NA"
+"macrofossil_presence","A logical value indicating if the respective macrofossil type was present in the peat sample (TRUE) or not (FALSE).","TRUE","NA","nominal","NA","NA","NA","NA"

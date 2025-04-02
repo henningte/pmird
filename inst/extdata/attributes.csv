@@ -1,0 +1,276 @@
+id_attribute,attribute_name,attribute_definition,example_value,unit,measurement_scale,number_type,bounds_minimum,bounds_maximum,format_string
+NA,abbreviation,In table `custom_units`: A string representing an abbreviation for the custom unit. ,NA,NA,nominal,NA,NA,NA,NA
+NA,abstract,A free text field with an abstract for the dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,acknowledgements,A free text field with acknowledgements for a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,activity_137Cs,A numeric value representing the measured mean value of the <sup>137</sup>Cs activity of the sample [DPM g<sup>-1</sup>] (DPM are disintegrations per minute).,"9,1",1/g/min,ratio,real,0,Inf,NA
+NA,activity_137Cs_err,A numeric value representing the measurement error of the <sup>137</sup>Cs activity of the sample [DPM g<sup>-1</sup>] (DPM are disintegrations per minute).,"1,2",1/g/min,ratio,real,0,Inf,NA
+NA,activity_210Pb,A numeric value representing the measured mean value of the <sup>210</sup>Pb activity of the sample [Bq kg<sup>-1</sup>].,370,Bq/kg,ratio,real,0,Inf,NA
+NA,activity_210Pb_err,A numeric value representing the measurement error of the <sup>210</sup>Pb activity of the sample [Bq kg<sup>-1</sup>].,"12,3",Bq/kg,ratio,real,0,Inf,NA
+NA,activity_226Ra,A numeric value representing the measured mean value of the <sup>226</sup>Ra activity of the sample [DPM g<sup>-1</sup>] (DPM are disintegrations per minute).,"9,1",1/g/min,ratio,real,0,Inf,NA
+NA,activity_226Ra_err,A numeric value representing the measurement error of the <sup>226</sup>Ra activity of the sample [DPM g<sup>-1</sup>] (DPM are disintegrations per minute).,"1,2",1/g/min,ratio,real,0,Inf,NA
+NA,Ag,A numeric value representing the silver mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,Ag_err,A numeric value representing the measurement error of the silver mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA
+NA,age_14C,A numeric value representing the mean value of the uncalibrated <sup>14</sup>C age of the sample [yr BP].,1200,yr,interval,real,Inf,Inf,NA
+NA,age_14C_err,A numeric value representing the error of the uncalibrated <sup>14</sup>C age of the sample [yr].,80,yr,ratio,real,0,Inf,NA
+NA,Al,A numeric value representing the aluminium mass content of the sample [mass-ppm].,859,ug/g,ratio,real,0,1e+06,NA
+NA,Al_err,A numeric value representing the measurement error of the aluminium mass content value of the sample [mass-ppm].,"3,2",ug/g,ratio,real,0,1e+06,NA
+NA,apodisation_function,A string representing the name of the apodisation function.,NB Medium,NA,nominal,NA,NA,NA,NA
+NA,As,A numeric value representing the arsenic mass content of the sample [mass-ppm].,"1,19",ug/g,ratio,real,0,1e+06,NA
+NA,As_err,A numeric value representing the measurement error of the arsenic mass content value of the sample [mass-ppm].,"0,3",ug/g,ratio,real,0,1e+06,NA
+NA,attribute_definition,A free text field with a textual description of the meaning of attributes in the pmird database.,NA,NA,nominal,NA,NA,NA,NA
+NA,attribute_name,A string describing the names of the attributes in all tables of the pmird database.,attribute_name,NA,nominal,NA,NA,NA,NA
+NA,Ba,A numeric value representing the barium mass content of the sample [mass-ppm].,"482,7",ug/g,ratio,real,0,1e+06,NA
+NA,Ba_err,A numeric value representing the measurement error of the barium mass content value of the sample [mass-ppm].,2,ug/g,ratio,real,0,1e+06,NA
+NA,background_activity_reached_210Pb,A logical value (TRUE or FALSE) indicating if the corresponding  <sup>210</sup>Pb activity in the same row (activity_210Pb) represents (according to the interpretation of the person who dated the core) the supported (background) <sup>210</sup>Pb activity (TRUE) or not (FALSE).,TRUE,NA,nominal,NA,NA,NA,NA
+NA,beamsplitter_name,A string representing the name of the beamsplitter.,NA,NA,nominal,NA,NA,NA,NA
+NA,begin_date,The minimum value of “sampling_date” in table “samples” for a specific dataset.,2010-05-15,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,bibtex,A string representing the bibtex code used for a literature reference throughout the pmird database.,Galka.2021,NA,nominal,NA,NA,NA,NA
+NA,bounds_maximum,A numeric value representing the minimum possible value for a numeric attribute.,0,NA,interval,real,Inf,Inf,NA
+NA,bounds_minimum,A numeric value representing the maximum possible value for a numeric attribute.,INF,NA,interval,real,Inf,Inf,NA
+NA,Br,A numeric value representing the bromine mass content of the sample [mass-ppm].,"26,55",ug/g,ratio,real,0,1e+06,NA
+NA,Br_err,A numeric value representing the measurement error of the bromine mass content value of the sample [mass-ppm].,"0,5",ug/g,ratio,real,0,1e+06,NA
+NA,bulk_density,A numeric value representing the bulk density of the sample [g cm<sup>-3</sup>].,"0,2",g/cm^3,ratio,real,0,Inf,NA
+NA,bulk_density_210Pb,A numeric value representing the mass density of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [g cm<sup>-3</sup>].,"0,2",g/cm^3,ratio,real,0,Inf,NA
+NA,bulk_density_210Pb_err,A numeric value representing the error of the mass density of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [g cm<sup>-3</sup>].,"0,03",g/cm^3,ratio,real,0,Inf,NA
+NA,bulk_density_err,A numeric value representing the measurement error of the bulk density of the sample [g cm<sup>-3</sup>].,"0,03",g/cm^3,ratio,real,0,Inf,NA
+NA,C,A numeric value representing the carbon mass content of the sample [mass-%].,"35,44",g/g,ratio,real,0,1,NA
+NA,C_err,A numeric value representing the measurement error of the carbon mass content value of the sample [mass-%].,"0,3",g/g,ratio,real,0,1,NA
+NA,Ca,A numeric value representing the calcium mass content of the sample [mass-ppm].,1353,ug/g,ratio,real,0,1e+06,NA
+NA,Ca_err,A numeric value representing the measurement error of the calcium mass content value of the sample [mass-ppm].,"7,6",ug/g,ratio,real,0,1e+06,NA
+NA,CaCO3,A numeric value representing the CaCO<sub>3</sub> mass content of the sample [µg/g],12040,ug/g,ratio,real,0,1e+06,NA
+NA,CaCO3_err,A numeric value representing the measurement error of the CaCO<sub>3</sub> mass content value of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,change_date,A string with the date when a dataset was changed with the format YYYY-MM-DD.,2010-05-15,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,change_scope,In table `maintenances`: A string describing the scope to which the documented change was applied.,NA,NA,nominal,NA,NA,NA,NA
+NA,Cl,A numeric value representing the chlorine mass content of the sample [mass-ppm].,410,ug/g,ratio,real,0,1e+06,NA
+NA,Cl_err,A numeric value representing the measurement error of the chlorine mass content value of the sample [mass-ppm].,"5,4",ug/g,ratio,real,0,1e+06,NA
+NA,comment,In table `change_histories`: A string with any comments on changes made to a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,comments_measurements,"A free text field where you can enter all information related to the sample that is not covered by the remaining fields. For example you could provide information on potential contamination sources, issues with specific parameters, additional information to the sampling site, e.g. present vegetation, past vegetation, specific conditions during sampling, ... .",...,NA,nominal,NA,NA,NA,NA
+NA,comments_samples,"A free text field where you can enter all information related to the sample that is not covered by the remaining fields. For example you could provide information on potential contamination sources, issues with specific parameters, additional information to the sampling site, e.g. present vegetation, past vegetation, specific conditions during sampling, ... .",...,NA,nominal,NA,NA,NA,NA
+NA,common_name,A string representing a common taxon name.,NA,NA,nominal,NA,NA,NA,NA
+NA,core_label,A string representing a label for the peat core (if the sample was taken from a peat core). This can be a custom label.,FT_II,NA,nominal,NA,NA,NA,NA
+NA,counting_method_210_Pb,"A string representing a description of the counting method used for measuring the <sup>210</sup>Pb activities (one of alpha, beta or gamma).",alpha,NA,nominal,NA,NA,NA,NA
+NA,coverage_type,"A string describing the type of a specific coverage (an entry in one of the tables “geographic_coverage“, “temporal_coverage”, or “taxonomic_coverage”). Must be one of {“geographic_coverage“, “temporal_coverage”, “taxonomic_coverage”}.",geographic_coverage,NA,nominal,NA,NA,NA,NA
+NA,Cr,A numeric value representing the chromium mass content of the sample [mass-ppm].,"4,02",ug/g,ratio,real,0,1e+06,NA
+NA,Cr_err,A numeric value representing the measurement error of the chromium mass content value of the sample [mass-ppm].,"0,04",ug/g,ratio,real,0,1e+06,NA
+NA,Cu,A numeric value representing the copper mass content of the sample [mass-ppm].,"10,8",ug/g,ratio,real,0,1e+06,NA
+NA,Cu_err,A numeric value representing the measurement error of the copper mass content value of the sample [mass-ppm].,"0,2",ug/g,ratio,real,0,1e+06,NA
+NA,d13C,A numeric value representing the <sup>13</sup>C isotope signature of the sample in delta permil relative to the VPDB standard.,"-25,13",dimensionless,ratio,real,Inf,Inf,NA
+NA,d13C_err,A numeric value representing the measurement error of the <sup>13</sup>C isotope signature of the sample in delta permil.,"0,01",dimensionless,ratio,real,0,Inf,NA
+NA,d15N,A numeric value representing the <sup>15</sup>N isotope signature of the sample in delta permil relative to air.,"-3,52",dimensionless,ratio,real,Inf,Inf,NA
+NA,d15N_err,A numeric value representing the measurement error of the <sup>15</sup>N isotope signature of the sample in delta permil.,"0,01",dimensionless,ratio,real,0,Inf,NA
+NA,d18O,A numeric value representing the <sup>18</sup>O isotope signature of the sample in delta permil relative to VSMOW.,"30,61",dimensionless,ratio,real,Inf,Inf,NA
+NA,d18O_err,A numeric value representing the measurement error of the <sup>18</sup>O isotope signature of the sample in delta permil.,"0,01",dimensionless,ratio,real,0,Inf,NA
+NA,d2H,A numeric value representing the <sup>2</sup>H isotope signature of the sample in delta permil relative to VSMOW.,"-84,32",dimensionless,ratio,real,Inf,Inf,NA
+NA,d2H_err,A numeric value representing the measurement error of the <sup>2</sup>H isotope signature of the sample in delta permil.,"0,01",dimensionless,ratio,real,0,Inf,NA
+NA,data_point_number,A numeric value representing the number of data points in the spectrum.,1765,NA,ratio,natural,0,Inf,NA
+NA,description,A free text field. In table “custom_units”: A description of a custom unit. In table “maintenances“: A description of the maintenance of a dataset. In table “method_steps“: A description of a method step. In table ”quality_control”: A description of the quality control.,NA,NA,nominal,NA,NA,NA,NA
+NA,detector_gain_factor,A numeric value representing the detection gain factor.,"1,5",dimensionless,ratio,real,Inf,Inf,NA
+NA,detector_name,A string representing the name of the detector.,INT1,NA,nominal,NA,NA,NA,NA
+NA,dimension,A string representing the dimension of the unit. ,NA,NA,nominal,NA,NA,NA,NA
+NA,east_bounding_coordinate,A numeric value representing the east bounding values of a bonuding box around the sampling locations for a dataset  (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°E]. This is the minimum value in “sampling_longitude” from table ”samples” for s specific dataset.,40447,NA,interval,real,-180,180,NA
+NA,electron_accepting_capacity,A numeric value representing the electron accepting capacity (EAC) of the sample [&mu;mol (g C)<sup>-1</sup>].,"115,81",umol/g,ratio,real,0,Inf,NA
+NA,electron_accepting_capacity_err,A numeric value representing the measurement error of the electron accepting capacity (EAC) of the sample [&mu;mol (g C)<sup>-1</sup>].,"75,63",umol/g,ratio,real,0,Inf,NA
+NA,electron_donating_capacity,A numeric value representing the electron donating capacity (EDC) of the sample [&mu;mol (g C)<sup>-1</sup>].,"376,34",umol/g,ratio,real,0,Inf,NA
+NA,electron_donating_capacity_err,A numeric value representing the measurement error of the electron donating capacity (EDC) of the sample [&mu;mol (g C)<sup>-1</sup>].,"56,45",umol/g,ratio,real,0,Inf,NA
+NA,electronic_mail_address,A string representing the email address for a person.,henning.teickner@wwu.de,NA,nominal,NA,NA,NA,NA
+NA,end_date,The maximum value of “sampling_date” in table “samples” for a specific dataset.,2010-05-15,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,enthalpy_of_formation,A numeric value representing the standard enthalpy of formation of the sample (using a molecular formular informed by element measurements of the sample) [kJ mol<sup>-1</sup>].,450,kJ/mol,ratio,real,Inf,Inf,NA
+NA,enthalpy_of_formation_err,A numeric value representing the measurement error of the standard enthalpy of formation of the sample (using a molecular formular informed by element measurements of the sample) [kJ mol<sup>-1</sup>].,25,kJ/mol,ratio,real,0,Inf,NA
+NA,entropy_of_formation,A numeric value representing the standard entropy of formation of the sample [J K<sup>-1</sup> mol<sup>-1</sup>].,450,J/K/mol,ratio,real,Inf,Inf,NA
+NA,entropy_of_formation_err,A numeric value representing the standard entropy of formation of the sample [J K<sup>-1</sup> mol<sup>-1</sup>].,20,J/K/mol,ratio,real,0,Inf,NA
+NA,explanation,In table `missing_value_codes`: A string explaining what the corresponding missing value code means. ,NA,NA,nominal,NA,NA,NA,NA
+NA,exponentiation_factor,A numeric value representing the exponentiation factor used for file compression.,-128,NA,interval,integer,Inf,Inf,NA
+NA,Fe,A numeric value representing the iron mass content of the sample [mass-ppm].,468,ug/g,ratio,real,0,1e+06,NA
+NA,Fe_err,A numeric value representing the measurement error of the iron mass content value of the sample [mass-ppm].,"2,3",ug/g,ratio,real,0,1e+06,NA
+NA,Fe2,A numeric value representing the Fe<sup>2+</sup> mass content in the sample [mass-ppm],"986,23215",ug/g,ratio,real,0,1e+06,NA
+NA,Fe2_err,A numeric value representing the measurement error of the Fe<sup>2+</sup> mass content value of the sample [mass-ppm].,23433,ug/g,ratio,real,0,1e+06,NA
+NA,Fe3,A numeric value representing the Fe<sup>3+</sup> mass content in the sample [mass-ppm],"64,73446",ug/g,ratio,real,0,1e+06,NA
+NA,Fe3_err,A numeric value representing the measurement error of the Fe<sup>3+</sup> mass content value of the sample [mass-ppm].,12341,ug/g,ratio,real,0,1e+06,NA
+NA,format_string,A string defining the format of a nominal variable.,YYYY-MM-DD,NA,nominal,NA,NA,NA,NA
+NA,general_taxonomic_coverage,In table `taxonomic_coverage`: A string describing the range of taxa addressed in the data set or collection.,NA,NA,nominal,NA,NA,NA,NA
+NA,geographic_description,A free text field where the gepgraphic coverage for a dataset is described.,NA,NA,nominal,NA,NA,NA,NA
+NA,getting_started,A free text field where instructions to use the data are described.,NA,NA,nominal,NA,NA,NA,NA
+NA,Gibbs_energy_of_formation,A numeric value representing the standard Gibbs energy of formation of the sample [kJ mol<sup>-1</sup>].,450,kJ/mol,ratio,real,Inf,Inf,NA
+NA,Gibbs_energy_of_formation_err,A numeric value representing the measurement error of the standard Gibbs energy of formation of the sample [kJ mol<sup>-1</sup>].,25,kJ/mol,ratio,real,0,Inf,NA
+NA,given_name,A string rerpesenting the given name(s) of a person.,Henning,NA,nominal,NA,NA,NA,NA
+NA,H,A numeric value representing the hydrogen mass content of the sample [mass-%].,"5,16",g/g,ratio,real,0,1,NA
+NA,H_err,A numeric value representing the measurement error of the hydrogen mass content value of the sample [mass-%].,"0,3",g/g,ratio,real,0,1,NA
+NA,heat_of_combustion,A numeric value representing the heat of combustion of the sample (using a molecular formular informed by element measurements of the sample) [kJ mol<sup>-1</sup>].,-780,kJ/mol,ratio,real,Inf,Inf,NA
+NA,heat_of_combustion_err,A numeric value representing the measurement error of the heat of combustion of the sample (using a molecular formular informed by element measurements of the sample) [kJ mol<sup>-1</sup>].,25,kJ/mol,ratio,real,0,Inf,NA
+NA,Hg,A numeric value representing the mercury mass content of the sample [mass-ppm].,"0,0231",ug/g,ratio,real,0,1e+06,NA
+NA,Hg_err,A numeric value representing the measurement error of the mercury mass content value of the sample [mass-ppm].,"0,0003",ug/g,ratio,real,0,1e+06,NA
+NA,holocellulose_content,A numeric value representing the holocellulose content of the sample [mass-%].,45,g/g,ratio,real,0,1,NA
+NA,holocellulose_content_err,A numeric value representing measurement error of the holocellulose content of the sample [mass-%].,"1,5",g/g,ratio,real,0,1,NA
+NA,humidity_absolute_reference,A numeric value representing the absolute humidity during measurement of the reference (background).,NA,g/L,ratio,real,0,Inf,NA
+NA,humidity_absolute_sample,A numeric value representing the absolute humidity during measurement of the sample.,NA,g/L,ratio,real,0,Inf,NA
+NA,humidity_relative_reference,A numeric value representing the relative humidity during measurement of the reference (background).,NA,kPa/kPa,ratio,real,0,Inf,NA
+NA,humidity_relative_sample,A numeric value representing the relative humidity during measurement of the sample.,NA,kPa/kPa,ratio,real,0,Inf,NA
+NA,hydraulic_conductivity,A numeric value representing the saturated hydraulic conductivity (K<sub>s</sub>) of the sample [cm h<sup>-1</sup>].,"4,7863",cm/h,ratio,real,0,Inf,NA
+NA,hydraulic_conductivity_err,A numeric value representing the error of the saturated hydraulic conductivity (K<sub>s</sub>) of the sample [cm h<sup>-1</sup>].,"0,02",cm/h,ratio,real,0,Inf,NA
+NA,id_attribute,An integer value representing an id for each attribute in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_change_history,An integer value representing an id for each entry in the table “change_histories“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_citation,An integer value representing an id for each entry in the table “citations“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_coverage,An integer value representing an id for each entry in the table “coverages“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_dataset,"A numeric id for the dataset (starting with 1 and increasing by 1; for one data contribution, this should be 1 for all samples and the appropriate id is assigned when the data are merged into the database).",1,NA,interval,natural,1,Inf,NA
+NA,id_geographic_coverage,An integer value representing an id for each entry in the table “geographic_coverages“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_instrument,An integer value representing an id for each entry in the table “instruments“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_license,An integer value representing an id for each entry in the table “licenses“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_macrofossil_type,A numeric id for the macrofossil type (starting with 1).,1,NA,interval,natural,1,Inf,NA
+NA,id_maintenance,An integer value representing an id for each entry in the table “maintenances“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_measurement,"A numeric id for measurements (starting with 1 and increasing by 1). This means that each measurement gets its own rows and measurements for different attributes are considered independent, i.e. multiple measurement ids for the same sample just count replicate measurements for any attribute. For attributes with less measurements than for a different attribute, just fill measurements starting from smaller id_measurement and leave the cells in the remaining rows empty.",1,NA,interval,natural,1,Inf,NA
+NA,id_measurement_scale,An integer value representing an id for each entry in the table “measurement_scales“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_method,An integer value representing an id for each entry in the table “methods“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_method_step,An integer value representing an id for each entry in the table “mehod_steps“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_missing_value_code,An integer value representing an id for each entry in the table “missing_value_codes“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_person,An integer value representing an id for each entry in the table “persons“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_quality_control,An integer value representing an id for each entry in the table “quality_controls“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_sample,A numeric id for the sample (starting with 1 and increasing by 1).,1,NA,interval,natural,1,Inf,NA
+NA,id_site,A numeric id for the site where the sample was collected. This should be the corresponding value in the file site_info.csv.,1,NA,interval,natural,1,Inf,NA
+NA,id_taxonomic_classification,An integer value representing an id for each entry in the table “taxonomic_classifications“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_taxonomic_coverage,An integer value representing an id for each entry in the table “taxonomic_coverages“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_temporal_coverage,An integer value representing an id for each entry in the table “temporal_coverages“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,id_unit,An integer value representing an id for each entry in the table “units“ in the pmird database.,1,NA,interval,natural,1,Inf,NA
+NA,identifier,In table `licenses`: A string representing an identifier for the license.,NA,NA,nominal,NA,NA,NA,NA
+NA,In,A numeric value representing the indium mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,In_err,A numeric value representing the measurement error of the indium mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA
+NA,instrumentation,A string describing an instrument in the table “instruments” in the pmird database.,NA,NA,nominal,NA,NA,NA,NA
+NA,intellectual_rights,A free text field describing any intellectual rights connected to a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,introduction,A free text field providing an intriductory description to a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,is_baseline_corrected,A logical value indicating if a spectrum is already baseline corrected (TRUE) or not (FALSE).,TRUE,NA,nominal,NA,NA,NA,NA
+NA,K,A numeric value representing the potassium mass content of the sample [mass-ppm].,481,ug/g,ratio,real,0,1e+06,NA
+NA,K_err,A numeric value representing the measurement error of the potassium mass content value of the sample [mass-ppm].,"5,6",ug/g,ratio,real,0,1e+06,NA
+NA,Klason_lignin_content,A numeric value representing the Klason lignin content of the sample [mass-%].,26,g/g,ratio,real,0,1,NA
+NA,Klason_lignin_content_err,A numeric value representing measurement error of the Klason lignin content of the sample [mass-%].,1,g/g,ratio,real,0,1,NA
+NA,lab_code_14C,A string representing a code for the laboratory where the <sup>14</sup>C activities were measured (<sup>14</sup>C ages were determined).,MAMS-,NA,nominal,NA,NA,NA,NA
+NA,laboratory_label_210Pb,"A string representing a label (preferentially a code, similarly to lab_code_14C) for the laboratory where the <sup>210</sup>Pb activities were measured.",MAMS-,NA,nominal,NA,NA,NA,NA
+NA,language,A string representing a description for the language used in a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,laser_wavenumber,A numeric value representing the wavenumber of the laser.,"15798,16",NA,ratio,real,0,Inf,NA
+NA,license_name,A string representing the name of a license.,NA,NA,nominal,NA,NA,NA,NA
+NA,loss_on_ignition,A numeric value representing the loss on ignition of the sample [mass-%].,"87,5",g/g,ratio,real,0,1,NA
+NA,loss_on_ignition_err,A numeric value representing the measurement error of the loss on ignition value of the sample [mass-%].,"4,3",g/g,ratio,real,0,1,NA
+NA,macrofossil_count,A numeric value representing a count for a specific macrofossil type (e.g. Carex seeds) divided by the volume of peat for which the macrofossil type was counted [1/cm^3].,12,NA,interval,real,0,Inf,NA
+NA,macrofossil_presence,A logical value indicating if the respective macrofossil type was present in the peat sample (TRUE) or not (FALSE).,TRUE,NA,nominal,NA,NA,NA,NA
+NA,macrofossil_size_lower,A numeric value representing the lower size bound for the macrofossil type (e.g. if only macrocharcoal particles larger than 1mm were considered) [mm].,1,mm,ratio,real,0,Inf,NA
+NA,macrofossil_size_upper,A numeric value representing the upper size bound for the macrofossil type (e.g. if wood fragments were classified by size) [mm].,5,mm,ratio,real,0,Inf,NA
+NA,macrofossil_taxon_organ,"The same as attribute 'taxon_organ', but for macrofossils.",seed,NA,nominal,NA,NA,NA,NA
+NA,macrofossil_type,"A string representing the macrofossil type. This can be a custom value, such as 'vegetation', 'ash', 'charcoal', 'unidentifiable organic matter'.",vegetation,NA,nominal,NA,NA,NA,NA
+NA,macrofossil_volume_fraction,A numeric value representing the volumetric fraction of a specific macrofossil type in the peat sample [L/L],"0,2",L/L,ratio,real,0,1,NA
+NA,macrofossil_volume_fraction_err,A numeric value representing measurement error for the volumetric fraction of a specific macrofossil type in the peat sample [L/L],"0,5",L/L,ratio,real,0,1,NA
+NA,macroporosity,"A numeric value representing the macroporosity of the sample [volume-%]. Since the term 'macroporosity' is ambiguous, the term should be defined in the description of the methods if values are available.","56,3",cm^3/cm^3,ratio,real,0,1,NA
+NA,macroporosity_err,A numeric value representing the error of the macroporosityporosity of the sample [volume-%].,"2,4",cm^3/cm^3,ratio,real,0,1,NA
+NA,maintenance_update_frequency,In table `maintenances`: A string describing the frequency with which changes and additions are made to the dataset after the initial dataset is completed.,NA,NA,nominal,NA,NA,NA,NA
+NA,mass,"A numeric value representing the mass of the sample [g]. This is the mass of the extracted sample and masses of subsets of the sample may differ (for example: A peat layer dried at 105 degree C may have a mass of 200 g. This is the value to be reported. After milling, 10 g may be used to measure the pH value (this value should not be reported here, but in the description of the methods or in column 'comments'.))",200,g,ratio,real,0,Inf,NA
+NA,mass_210Pb,A numeric value representing the measured mass of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [g].,6,g,ratio,real,0,Inf,NA
+NA,mass_210Pb_err,A numeric value representing the measurement error of the mass of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [g].,"0,01",g,ratio,real,0,Inf,NA
+NA,mass_err,A numeric value representing the measurement error of the mass of the sample [g].,"0,01",g,ratio,real,0,Inf,NA
+NA,measurement_date,A datetime representing the dat and time when the spectrum was measured.,2021-02-01 09:00:00 ,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,measurement_date_reference,A datetime representing the dat and time when the reference (background) spectrum was measured when a separate background spectrum is available in the file.,2021-02-01 09:00:00 ,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,measurement_device,A string representing the name of the measurement device.,Agilent,NA,nominal,NA,NA,NA,NA
+NA,measurement_scale,In table `measurement_scales`: A string representing the measurmeent scale for a value.,NA,NA,nominal,NA,NA,NA,NA
+NA,Mg,A numeric value representing the magnesium mass content of the sample [mass-ppm].,520,ug/g,ratio,real,0,1e+06,NA
+NA,Mg_err,A numeric value representing the measurement error of the magnesium mass content value of the sample [mass-ppm].,"3,2",ug/g,ratio,real,0,1e+06,NA
+NA,mir_mode,"A string representing the measurement mode in which the mid infrared spectra were measured. One of “absorbance_ftir”, “atr_ftir”, “dr_ftir”.",absorcance_ftir,NA,nominal,NA,NA,NA,NA
+NA,mir_water_vapor_contribution_relative,A numeric value representing the relative water vapor contribution to a mid infrared spectrum. This is the slope of an ordinary least squares regression model fitting a reference water vapor spectrum to a specified range of the spectrum.,"0,34",NA,interval,real,INF,INF,NA
+NA,mir_water_vapor_contribution_relative_sd,A numeric value representing an uncertainty estimate for the relative water vapor contribution to a mid infrared spectrum. This is the standard deviation of the slope of an ordinary least squares regression model fitting a reference water vapor spectrum to a specified range of the spectrum.,"0,0445",NA,ratio,real,0,INF,NA
+NA,mir_co2_contribution_relative,A numeric value representing the relative carbon dioxide contribution to a mid infrared spectrum. This is the slope of an ordinary least squares regression model fitting a reference carbon dioxide spectrum to a specified range of the spectrum.,"0,23",NA,interval,real,INF,INF,NA
+NA,mir_water_vapor_contribution_relative_sd,A numeric value representing an uncertainty estimate for the relative water vapor contribution to a mid infrared spectrum. This is the standard deviation of the slope of an ordinary least squares regression model fitting a reference water vapor spectrum to a specified range of the spectrum.,"0,0445",NA,ratio,real,0,INF,NA
+NA,mirs_file,A string representing the path to the file with the mid infrared spectrum for the sample. This is a relative path relative to the root of the database. This field should be left empty upon creating the project because the file path is added automatically when the data are included in the database.,../../mir/c00012-2020-12-01-contributor_name/mirs_1.spc,NA,nominal,NA,NA,NA,NA
+NA,missing_value_code,"A string representing a code for missing value in the tables “data”, “samples“, ”macrofossils”, and ”mir_metadata” in the pmird database.",NA,NA,nominal,NA,NA,NA,NA
+NA,Mn,A numeric value representing the manganese mass content of the sample [mass-ppm].,"23,6",ug/g,ratio,real,0,1e+06,NA
+NA,Mn_err,A numeric value representing the measurement error of the manganese mass content value of the sample [mass-ppm].,"0,04",ug/g,ratio,real,0,1e+06,NA
+NA,multiplier_to_si,A numeric value representing the value with which a given value with a certain measurement unit has to be multiplied in order to convert it to a related SI unit.,100,dimensionless,interval,real,Inf,Inf,NA
+NA,N,A numeric value representing the nitrogen mass content of the sample [mass-%].,1345,g/g,ratio,real,0,1,NA
+NA,N_err,A numeric value representing the measurement error of the nitrogen mass content value of the sample [mass-%].,"0,02",g/g,ratio,real,0,1,NA
+NA,Na,A numeric value representing the sodium mass content of the sample [mass-ppm].,104,ug/g,ratio,real,0,1e+06,NA
+NA,Na_err,A numeric value representing the measurement error of the sodium mass content value of the sample [mass-ppm].,"6,7",ug/g,ratio,real,0,1e+06,NA
+NA,Ni,A numeric value representing the nickel mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,Ni_err,A numeric value representing the measurement error of the nickel mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA
+NA,noise_level_relative,A numeric value representing the relative noise level of a mid infrared spectrum.,4,NA,interval,real,INF,INF,NA
+NA,north_bounding_coordinate,A numeric value representing the north bounding values of a bonuding box around the sampling locations for a dataset  (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°N]. This is the maximum value in “sampling_latitude” from table ”samples” for s specific dataset.,40447,NA,interval,real,-180,180,NA
+NA,number_type,A string representing the number type of a numeric variable. ,NA,NA,nominal,NA,NA,NA,NA
+NA,O,A numeric value representing the oxygen mass content of the sample [mass-%].,"28,54",g/g,ratio,real,0,1,NA
+NA,O_err,A numeric value representing the measurement error of the oxygen mass content value of the sample [mass-%].,"1,2",g/g,ratio,real,0,1,NA
+NA,old_value,In table `change_histories`: A string describing the old dataset before the change in the current version.,NA,NA,nominal,NA,NA,NA,NA
+NA,online_url,In table `persons`: A link to the website of a person.,NA,NA,nominal,NA,NA,NA,NA
+NA,P,A numeric value representing the phosphorous mass content of the sample [mass-ppm].,"263,6",ug/g,ratio,real,0,1e+06,NA
+NA,P_err,A numeric value representing the measurement error of the phosphorous mass content value of the sample [mass-ppm].,"5,4",ug/g,ratio,real,0,1e+06,NA
+NA,parent_si,A string representing the SI unit from which a certain derived unit is derived.,m,NA,nominal,NA,NA,NA,NA
+NA,Pb,A numeric value representing the lead mass content of the sample [mass-ppm].,"29,72",ug/g,ratio,real,0,1e+06,NA
+NA,Pb_err,A numeric value representing the measurement error of the lead mass content value of the sample [mass-ppm].,"0,4",ug/g,ratio,real,0,1e+06,NA
+NA,pH,A numeric value representing the pH value of the sample.,"5,4",dimensionless,interval,real,Inf,Inf,NA
+NA,pH_err,A numeric value representing the measurement error of the pH value value of the sample.,"0,8",dimensionless,ratio,real,Inf,Inf,NA
+NA,phone,A string representing the phone number of a person.,NA,NA,nominal,NA,NA,NA,NA
+NA,porosity,A numeric value representing the porosity of the sample [volume-%].,"82,3",cm^3/cm^3,ratio,real,0,1,NA
+NA,porosity_err,A numeric value representing the error of the porosity of the sample [volume-%].,"2,4",cm^3/cm^3,ratio,real,0,1,NA
+NA,power,In table `unit_types`: An integer value. The power to which a dimension is raised.,NA,NA,nominal,NA,NA,NA,NA
+NA,pub_date,A string with the year when the dataset was originally published with the format YYYY.,NA,NA,nominal,NA,NA,NA,YYYY
+NA,purge_delay,A numeric value representing the duration of purge delay before a measurement in seconds.,180,s,ratio,real,0,Inf,NA
+NA,purpose,A free text field dscribing the purpse for which the dataset was created.,NA,NA,nominal,NA,NA,NA,NA
+NA,Rb,A numeric value representing the rubidium mass content of the sample [mass-ppm].,"1,8",ug/g,ratio,real,0,1e+06,NA
+NA,Rb_err,A numeric value representing the measurement error of the rubidium mass content value of the sample [mass-ppm].,"0,1",ug/g,ratio,real,0,1e+06,NA
+NA,reference_publication,A string in the bibtex format giving informatio on references which serve as references for data or publication where a certain dataset is described or used.,NA,NA,nominal,NA,NA,NA,NA
+NA,rep_no,An integer value representing the sample repetition number.,0,NA,ratio,whole,0,Inf,NA
+NA,S,A numeric value representing the sulfur mass content of the sample [mass-ppm].,472,ug/g,ratio,real,0,1e+06,NA
+NA,S_err,A numeric value representing the measurement error of the sulfur mass content value of the sample [mass-ppm].,"12,4",ug/g,ratio,real,0,1e+06,NA
+NA,salutation,A string representing the salutation used to address an individual.,NA,NA,nominal,NA,NA,NA,NA
+NA,sample_depth_lower,A numeric value representing the depth of the lower boundary of a sample relative to the land surface (e.g. peat surface) [cm].,15,cm,interval,real,Inf,Inf,NA
+NA,sample_depth_lower_err,A numeric value representing the measurement error of the lower boundary of a sample [cm].,"0,2",cm,ratio,real,0,Inf,NA
+NA,sample_depth_upper,A numeric value representing the depth of the upper boundary of a sample relative to the land surface (e.g. peat surface) [cm].,12,cm,interval,real,Inf,Inf,NA
+NA,sample_depth_upper_err,A numeric value representing the measurement error of the upper boundary of a sample [cm].,"0,2",cm,ratio,real,0,Inf,NA
+NA,sample_label,A string representing a label for each sample.,S1,NA,nominal,NA,NA,NA,NA
+NA,sample_microhabitat,"A string describing the microhabitat where the sample was collected. For peat, this should be one of 'hummock', 'hollow', 'lawn', 'pond'. In other cases, a custom value can be used.",hummock,NA,nominal,NA,NA,NA,NA
+NA,sample_treatment,"A string with an description of an experimental tratment if this was applied. By default, this should be 'control', indicating that there was no manipulation. If there was any experimental manipulation, this can be abbreviated by a label (e.g. by a treatment level) that is defined in the textual description of the project (in the file 'description.docx').",control,NA,nominal,NA,NA,NA,NA
+NA,sample_type,"A string describing the type of the sample. Must be one of 'peat', 'dom', 'vegetation', 'litter'.",peat,NA,nominal,NA,NA,NA,NA
+NA,sample_type2,A string describing the type of the sample. Here you can provide individual (own) categories which may provide more details than the column sample_type.,shoots,NA,nominal,NA,NA,NA,NA
+NA,sampling_altitude,A numeric value representing the altitude of the exact sampling position [m above sea level].,543,m,ratio,real,Inf,Inf,NA
+NA,sampling_altitude_err,A numeric value representing the measurement error of the altitude of the exact sampling position [m above sea level].,"5,2",m,ratio,real,0,Inf,NA
+NA,sampling_date,A string with the date when the sample was collected (in the field) with the format YYYY-MM-DD.,2010-05-15,NA,date_time,NA,NA,NA,YYYY-MM-DD
+NA,sampling_description,A free text field where the collection of samples is described (including experimental or sampling design).,NA,NA,nominal,NA,NA,NA,NA
+NA,sampling_latitude,A numeric value representing the latitude coordinates of the exact sampling position (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°N].,40447,NA,interval,real,-180,180,NA
+NA,sampling_latitude_err,A numeric value representing the measurement error of the latitude coordinates of the exact sampling position (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°N].,5,NA,ratio,real,0,360,NA
+NA,sampling_longitude,A numeric value representing the longitude coordinates of the exact sampling position (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°W].,79983,NA,interval,real,-180,180,NA
+NA,sampling_longitude_err,A numeric value representing the measurement error of the longitude coordinates of the exact sampling position (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°W].,3,NA,ratio,real,0,360,NA
+NA,Sb,A numeric value representing the antimony mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,Sb_err,A numeric value representing the measurement error of the antimony mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA
+NA,scan_number,An integer value representing the number of scans. ,32,NA,ratio,natural,1,Inf,NA
+NA,scan_speed,A numeric value representing the scan speed.,5,kHz,ratio,real,0,Inf,NA
+NA,Si,A numeric value representing the silicium mass content of the sample [mass-ppm].,"1681,5",ug/g,ratio,real,0,1e+06,NA
+NA,Si_err,A numeric value representing the measurement error of the silicium mass content value of the sample [mass-ppm].,"9,7",ug/g,ratio,real,0,1e+06,NA
+NA,Sn,A numeric value representing the tin mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,Sn_err,A numeric value representing the measurement error of the tin mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA
+NA,source_name,A string representing the name of the infrared radiation source.,SRC1,NA,nominal,NA,NA,NA,NA
+NA,south_bounding_coordinate,A numeric value representing the south bounding values of a bonuding box around the sampling locations for a dataset  (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°N]. This is the minimum value in “sampling_latitude” from table ”samples” for s specific dataset.,40447,NA,interval,real,-180,180,NA
+NA,Sr,A numeric value representing the strontium mass content of the sample [mass-ppm].,"8,8",ug/g,ratio,real,0,1e+06,NA
+NA,Sr_err,A numeric value representing the measurement error of the strontium mass content value of the sample [mass-ppm].,"0,2",ug/g,ratio,real,0,1e+06,NA
+NA,standard_unit,A logical value indicating whether the unit is a standard unit of the Ecological Metadata Language or not.,1,NA,nominal,NA,NA,NA,NA
+NA,sur_name,A string representing the sur name of a person.,Teickner,NA,nominal,NA,NA,NA,NA
+NA,taxon_organ,"A string describing the organ of a taxon the sample represents (if the sample represents a taxon). For example, if the sample is Carex lasiocarpa, this could be 'shoot', or 'root', or 'leaves'.",root,NA,nominal,NA,NA,NA,NA
+NA,taxon_rank_name,"A string describing the taxon rank the value in column taxon_rank_value represents (if the sample can be assigned to a specific taxon). For exampe, if the value in column taxon_rank_value is a species name, then you should enter 'species' here, or if the value in column taxon_rank_value is a genus name, then you should enter 'genus' here.",species,NA,nominal,NA,NA,NA,NA
+NA,taxon_rank_value,"A string describing the taxon rank value of the sample (if the sample can be assigned to a taxon). For example, if the sample is a distinct species, enter the scientific species name here, or if the sample can be assigned to a genus, enter the scientific genus name here.",Sphagnum magellanicum,NA,nominal,NA,NA,NA,NA
+NA,temperature_scanner_reference,A numeric value representing the temperature of the scanner during the measurement of the reference (background).,NA,K,ratio,real,Inf,Inf,NA
+NA,temperature_scanner_sample,A numeric value representing the temperature of the scanner during the measurement of the sample.,NA,K,ratio,real,Inf,Inf,NA
+NA,text_domain_definition,A string representing the text domain for a string. ,NA,NA,nominal,NA,NA,NA,NA
+NA,Ti,A numeric value representing the titanium mass content of the sample [mass-ppm].,"523,6",ug/g,ratio,real,0,1e+06,NA
+NA,Ti_err,A numeric value representing the measurement error of the titanium mass content value of the sample [mass-ppm].,"5,6",ug/g,ratio,real,0,1e+06,NA
+NA,title,A free text field with the title for a dataset.,NA,NA,nominal,NA,NA,NA,NA
+NA,udunits_unit,A string representing a measurement unit in the udunits format.,m,NA,nominal,NA,NA,NA,NA
+NA,unit_type,A string representing the type of a unit. ,NA,NA,nominal,NA,NA,NA,NA
+NA,url,In table `licenses`: A string representing an url to a website with information on the license.,NA,NA,nominal,NA,NA,NA,NA
+NA,user_id,In table `persons`: A string representing an identifier that links this party to a directory of individuals.,NA,NA,nominal,NA,NA,NA,NA
+NA,volume,A numeric value representing the volume of the sample [cm<sup>3</sup>].,20,cm^3,ratio,real,0,Inf,NA
+NA,volume_210Pb,A numeric value representing the measured volume of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [cm<sup>3</sup>].,10,cm^3,ratio,real,0,Inf,NA
+NA,volume_210Pb_err,A numeric value representing the error of the volume of the subsample on which the <sup>210</sup>Pb activity of the sample was measured [cm<sup>3</sup>].,"0,1",cm^3,ratio,real,0,Inf,NA
+NA,volume_err,A numeric value representing the measurement error of the volume of the sample [cm<sup>3</sup>].,0.1 cm<sup>3</sup>,cm^3,ratio,real,0,Inf,NA
+NA,water_content,A numeric value representing the water mass content of the sample as mass of water divided by the mass of the wet sample [g/g],"2,3",g/g,ratio,real,0,1,NA
+NA,water_content_err,A numeric value representing the measurement error of the water mass content value of the sample [g/g].,"0,01",g/g,ratio,real,0,1,NA
+NA,west_bounding_coordinate,A numeric value representing the west bounding values of a bonuding box around the sampling locations for a dataset  (in the EPSG:3857 projection coordinate system --- this is the system used by Google and is based on the WGS 84 reference system) [°E]. This is the maximum value in “sampling_longitude” from table ”samples” for s specific dataset.,40447,NA,interval,real,-180,180,NA
+NA,x_variable_type,A string representing the type of the x variable.,tilde(nu)/cm^-1 ,NA,nominal,NA,NA,NA,NA
+NA,x_variable_min,A numeric value representing the minimum x variable value of each spectrum.,650,1/cm,ratio,real,0,INF,NA
+NA,x_variable_max,A numeric value representing the maximum x variable value of each spectrum.,3995,1/cm,ratio,real,0,INF,NA
+NA,y_variable_type,A string representing the type of the y variable.,A,NA,nominal,NA,NA,NA,NA
+NA,year_137Cs,A numeric value representing the age that was assigned to the sample based on the <sup>137</sup>Cs activity inventory [yr AD] (e.g. by relating it to the date of the Chernobyl accident).,1963,yr,interval,real,Inf,Inf,NA
+NA,zero_filling_factor,An integer value representing the zero filling factor.,2,NA,interval,integer,Inf,Inf,NA
+NA,Zn,A numeric value representing the zinc mass content of the sample [mass-ppm].,"3,9",ug/g,ratio,real,0,1e+06,NA
+NA,Zn_err,A numeric value representing the measurement error of the zinc mass content value of the sample [mass-ppm].,"0,3",ug/g,ratio,real,0,1e+06,NA
+NA,Zr,A numeric value representing the zirconium mass content of the sample [mass-ppm].,30,ug/g,ratio,real,0,1e+06,NA
+NA,Zr_err,A numeric value representing the measurement error of the zirconium mass content value of the sample [mass-ppm].,"5,16",ug/g,ratio,real,0,1e+06,NA

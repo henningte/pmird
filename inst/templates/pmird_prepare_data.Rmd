@@ -1,0 +1,949 @@
+---
+title: "pmird_prepare_data_DATA_ID"
+author: "Henning Teickner"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+```{r packages}
+library(pmird)
+```
+
+```{r}
+# directory
+dir_source <- "../pmird_raw_data/FOLDER_WITH_DATA"
+dir_target <- "../pmird_prepared_data/FOLDER_WITH_DATA"
+# dir.create(dir_target, recursive = FALSE)
+# dir.create(paste0(dir_target, "/mir"), recursive = FALSE)
+```
+
+# Introduction
+
+Script to prepare the data in `c00001-2020-08-17-Hodgkins` for pmird.
+
+# Load required files
+
+```{r connect-db}
+# connect to database
+con <-
+  RMariaDB::dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = "pmird",
+    username = "root", # ---todo: adjust or get from config file
+    password = "coucou",
+    host = "mariadb"
+  )
+
+# pmird database
+dm_pmird <-
+  pmird::pm_get_dm(con, learn_keys = TRUE)
+```
+
+```{r identifiers}
+# general information (ids)
+id_dataset <-
+  dm_pmird %>%
+  dm::dm_zoom_to(datasets) %>%
+  pmird::pm_get_max(.col = id_dataset) %>%
+  magrittr::add(1L)
+
+id_measurement_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(data) %>%
+  pmird::pm_get_max(.col = id_measurement)
+
+id_sample_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(samples) %>%
+  pmird::pm_get_max(.col = id_sample)
+
+id_coverage_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(coverages) %>%
+  pmird::pm_get_max(.col = id_coverage)
+
+id_geographic_coverage_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(geographic_coverages) %>%
+  pmird::pm_get_max(.col = id_geographic_coverage)
+
+id_temporal_coverage_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(temporal_coverages) %>%
+  pmird::pm_get_max(.col = id_temporal_coverage)
+
+id_taxonomic_coverage_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(taxonomic_coverages) %>%
+  pmird::pm_get_max(.col = id_taxonomic_coverage)
+
+id_change_history_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(change_histories) %>%
+  pmird::pm_get_max(.col = id_change_history)
+
+id_instrument_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(instruments) %>%
+  pmird::pm_get_max(.col = id_instrument)
+
+id_method_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(methods) %>%
+  pmird::pm_get_max(.col = id_method)
+
+id_method_step_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(method_steps) %>%
+  pmird::pm_get_max(.col = id_method_step)
+
+id_quality_control_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(quality_control) %>%
+  pmird::pm_get_max(.col = id_quality_control)
+
+id_person_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(persons) %>%
+  pmird::pm_get_max(.col = id_person)
+
+id_taxonomic_classification_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(taxonomic_classifications) %>%
+  pmird::pm_get_max(.col = id_taxonomic_classification)
+
+id_macrofossil_type_last <-
+  dm_pmird %>%
+  dm::dm_zoom_to(macrofossil_types) %>%
+  pmird::pm_get_max(.col = id_macrofossil_type)
+```
+
+
+# Add data to template files
+
+## pmird.data
+
+Describe reformatting
+
+```{r data-preparation}
+### extract individual mid infrared spectra
+
+### code to format data
+```
+
+### pmird.samples
+
+```{r samples}
+# combine
+samples <- 
+  pmird:::db_template_tables$samples %>%
+  dplyr::bind_rows() %>%
+  dplyr::select(dplyr::one_of(pmird:::db_template_tables$samples %>% colnames())) %>%
+  dplyr::mutate(id_dataset = !!id_dataset,
+                id_sample = id_sample_last + seq_len(nrow(.)))
+```
+
+### pmird.data
+
+```{r data}
+# combine
+d <- 
+  pmird:::db_template_tables$data %>%
+  dplyr::bind_rows() %>%
+  dplyr::select(dplyr::one_of(pmird:::db_template_tables$data %>% colnames())) %>%
+  dplyr::mutate(id_measurement = id_measurement_last + seq_len(nrow(.)))
+```
+
+### pmird.data_to_samples
+
+```{r data_to_samples}
+data_to_samples <-  
+  pmird:::db_template_tables$data_to_samples %>%
+  dplyr::bind_rows(
+  )
+```
+
+
+## pmird.mir_metadata
+
+```{r mir_metadata}
+mir_metadata <-
+  pmird::db_template_tables$mir_metadata %>%
+  dplyr::bind_rows(
+  )
+```
+
+
+## pmird.change_histories
+
+Add entries here if you change the data (not necessary upon initialization)
+
+```{r change_histories}
+change_histories <- 
+  pmird:::db_template_tables$change_histories %>%
+  dplyr::bind_rows()
+```
+
+## pmird.citations
+
+_Note_: use the script `add-citations.Rmd` to add new literature references to the database. 
+
+This chunk here is only to query those references required for this dataset to get e.g. author names, or publication dates, and to link citations to other information (e.g. methods). 
+
+```{r citations}
+# bibliography information
+tmp_file <- tempfile("temp_bib", tmpdir = tempdir(), fileext = ".bib")
+
+dm_pmird %>%
+  dm::dm_zoom_to(citations) %>%
+  dplyr::filter(id_citation %in% c()) %>% # put bibtex keys here
+  dplyr::pull(bibtex) %>%
+  writeLines(con = tmp_file)
+
+citations <- bib2df::bib2df(tmp_file)
+
+# Note: The article serving as reference for the data should be replaced later on by the published article, unless this article does not comprise all available data
+bibliography_information <- 
+  bib2df::bib2df(tmp_file) %>%
+  dplyr::filter(BIBTEXKEY == "") # put bibtex keys here
+```
+
+## pmird.citations_to_data
+
+_Note_: There are no sample-specific citations for this dataset.
+
+```{r citations_to_data}
+citations_to_data <-
+  pmird:::db_template_tables$citations_to_data %>%
+  dplyr::bind_rows( 
+    # e.g. csv table with sample labels/ids and bibtex keys
+  )
+```
+
+## pmird.coverages
+
+### pmird.geographic_coverages
+
+```{r geographic_coverages}
+# get bounding box of data
+d_bbx <-
+  d %>%
+  dplyr::filter(!is.na(sampling_latitude)) %>%
+  sf::st_as_sf(coords = c("sampling_longitude", "sampling_latitude"), 
+               crs = "EPSG:3857") %>%
+  sf::st_bbox()
+
+# description
+geographic_description_file <- paste0(dir_source, "/additional/geographic_description.md")
+
+geographic_coverages <-
+  pmird:::db_template_tables$geographic_coverages %>%
+  dplyr::bind_rows(
+    tibble::tibble( # bounding box for complete dataset
+      id_geographic_coverage = id_geographic_coverage_last + 1L,
+      id_coverage = id_coverage_last + 1L,
+      geographic_description = 
+        readChar(geographic_description_file, file.info(geographic_description_file)$size),
+      west_bounding_coordinate = d_bbx[["xmin"]],  
+      east_bounding_coordinate = d_bbx[["xmax"]],  
+      north_bounding_coordinate = d_bbx[["ymax"]], 
+      south_bounding_coordinate = d_bbx[["ymin"]]
+    )
+  )
+```
+
+### pmird.temporal_coverages
+
+_Note:_ No sampling date is given in the data or thesis. Only the sampling year is known.
+
+```{r temporal_coverages}
+temporal_coverages <-
+  pmird:::db_template_tables$temporal_coverages %>%
+  dplyr::bind_rows(
+    tibble::tibble( # bounding box for complete dataset
+      id_temporal_coverage = id_temporal_coverage_last + 1L,
+      id_coverage = max(geographic_coverages$id_coverage) + 1L,
+      begin_date = min(d$sampling_date, na.rm = TRUE),
+      end_date = max(d$sampling_date, na.rm = TRUE)
+    )
+  )
+```
+
+### pmird.taxonomic_classifications
+
+```{r taxonomic_classifications}
+taxonomic_classifications <-
+  pmird::db_template_tables$taxonomic_classifications %>%
+  dplyr::bind_rows(
+  ) %>%
+  pmird:::pm_update_import(
+    con = con, 
+    table_name = "taxonomic_classifications", 
+    id_last = id_taxonomic_classification_last
+  )
+
+taxonomic_classifications_required <-
+  taxonomic_classifications$required
+
+taxonomic_classifications <-
+  taxonomic_classifications$to_add
+```
+
+
+### pmird.taxonomic_coverages
+
+```{r taxonomic_coverages}
+# get unique taxonomic_coverages
+taxonomic_coverages <-
+  pmird:::db_template_tables$taxonomic_coverages %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_taxonomic_coverage = id_taxonomic_coverage_last + 1L,
+      id_coverage = max(temporal_coverages$id_coverage) + length(id_taxonomic_coverage)
+    )
+)
+```
+
+
+### pmird.taxclas_to_taxcovs
+
+```{r taxclas_to_taxcovs}
+taxclas_to_taxcovs <- pmird::db_template_tables$taxclas_to_taxcovs %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_taxonomic_coverage = 
+        taxonomic_coverages %>% 
+        dplyr::pull(id_taxonomic_coverage),
+      id_taxonomic_classification = 
+        taxonomic_classifications_required %>% 
+        dplyr::pull(id_taxonomic_classification)
+    )
+  )
+```
+
+
+### pmird.coverages
+
+```{r coverages}
+# collect coverages
+coverages <-
+  pmird:::db_template_tables$coverages %>%
+  dplyr::bind_rows(
+    geographic_coverages %>%
+      dplyr::select(id_coverage) %>%
+      dplyr::mutate(coverage_type = "geographic_coverage"),
+    temporal_coverages %>%
+      dplyr::select(id_coverage) %>%
+      dplyr::mutate(coverage_type = "temporal_coverage"),
+    taxonomic_coverages %>%
+      dplyr::select(id_coverage) %>%
+      dplyr::mutate(coverage_type = "taxonomic_coverage")
+  )
+```
+
+
+## pmird.macrofossil_types
+
+```{r macrofossil_types}
+macrofossil_types <-
+  pmird::db_template_tables$macrofossil_types %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/macrofossil_types.csv")) %>%
+      dplyr::left_join(taxonomic_classifications_required %>%
+                         dplyr::select(-common_name), 
+                       by = c("taxon_rank_name", "taxon_rank_value"))  %>% 
+      dplyr::select(-number_type)
+  ) %>%
+  pmird:::pm_update_import(
+    con = con, 
+    table_name = "macrofossil_types", 
+    id_last = id_macrofossil_type_last
+  ) %>%
+  purrr::map(dplyr::select, -taxon_rank_name, -taxon_rank_value)
+
+macrofossil_types_required <-
+  macrofossil_types$required
+
+macrofossil_types <-
+  macrofossil_types$to_add
+```
+
+## pmird.mactyps_to_taxclas
+
+```{r mactyps_to_taxclas}
+mactyps_to_taxclas <-
+  pmird::db_template_tables$mactyps_to_taxclas %>%
+  dplyr::bind_rows(
+    macrofossil_types %>%
+      dplyr::filter(!is.na(id_taxonomic_classification)) %>%
+      dplyr::select(id_macrofossil_type, id_taxonomic_classification)
+  )
+
+# update macrofossil_types_required and macrofossil_types_required
+macrofossil_types_required <-
+  macrofossil_types_required %>%
+  dplyr::select(-id_taxonomic_classification)
+
+macrofossil_types <-
+  macrofossil_types %>%
+  dplyr::select(-id_taxonomic_classification)
+```
+
+
+## pmird.macrofossils
+
+```{r macrofossils}
+# prepare data
+
+# add id_sample
+d2 <-
+  d2 %>%
+  dplyr::rename(sample_label = "sample_id") %>%
+  dplyr::left_join(d %>% dplyr::select(id_sample, sample_label),
+                   by = c("sample_label")) %>%
+  dplyr::select(-sample_label)
+
+# collate two columns with identical macrofossil_type
+d2 <-
+  d2 %>%
+  dplyr::mutate(
+    `Tetronicum.magellanicum...epiderms..rootlets....` =
+      dplyr::case_when(
+        is.na(`Tetronicum.magellanicum...epiderms..rootlets....`) ~ `cf..Tetronicum.magellanicum...epiderms..rootlets....`,
+        TRUE ~ `Tetronicum.magellanicum...epiderms..rootlets....`
+      )
+  ) %>%
+  dplyr::select(-`cf..Tetronicum.magellanicum...epiderms..rootlets....`)
+
+# reformat
+index <-
+  read.csv(paste0(dir_source, "/additional/macrofossil_types.csv")) %>%
+  dplyr::pull(number_type)
+
+d2_id_sample <-
+  d2 %>%
+  dplyr::pull(id_sample)
+
+d2 <- 
+  d2 %>%
+  dplyr::select(-id_sample)
+
+d2 <-
+  purrr::map_df(seq_len(ncol(d2)), function(i) {
+    tibble::tibble(
+      id_sample = d2_id_sample,
+      id_macrofossil_type = macrofossil_types_required$id_macrofossil_type[[i]],
+      macrofossil_volume_fraction = 
+        if(index[[i]] == "fraction") d2[, i, drop = TRUE] else NA_real_,
+      macrofossil_count = 
+        if(index[[i]] == "count") d2[, i, drop = TRUE] else NA_real_,
+      macrofossil_presence = 
+        if(index[[i]] == "logical") d2[, i, drop = TRUE] else NA_real_
+    )  
+  }) %>%
+  dplyr::mutate(
+    macrofossil_presence = dplyr::case_when(
+      macrofossil_volume_fraction > 0 | macrofossil_count > 0 | macrofossil_presence == 1 ~ 1L,
+      TRUE ~ 0L
+    )
+  ) %>%
+  dplyr::filter(!is.na(macrofossil_presence))
+
+macrofossils <-
+  pmird::db_template_tables$macrofossils %>%
+  dplyr::bind_rows(
+    d2
+  )
+```
+
+
+## pmird.custom_units
+
+_Note_: Add new units in the script `001-db_initialize.Rmd`.
+
+
+## pmird.instruments
+
+```{r instruments}
+instruments <-
+  pmird:::db_template_tables$instruments %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/instruments.csv"), as.is = TRUE)
+  ) %>%
+  pmird::pm_update_import(
+    con = con, 
+    table_name = "instruments", 
+    id_last = id_instrument_last
+  )
+  
+instruments_required <-
+  instruments$required
+
+instruments <-
+  instruments$to_add
+```
+
+
+## pmird.quality_control
+
+### pmird.quality_control
+
+```{r quality_control}
+quality_control <-
+  pmird::db_template_tables$quality_control %>%
+  dplyr::bind_rows(
+  )
+```
+
+### pmird.citations_to_quality_control
+
+_Note_: For this dataset, no literature was cited for the quality control
+
+```{r citations_to_quality_control}
+citations_to_quality_control <-
+  pmird::db_template_tables$citations_to_quality_control %>%
+  dplyr::bind_rows()
+```
+
+## pmird.methods
+
+### pmird.method_steps
+
+```{r method_steps}
+method_steps <-
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/method_steps.csv")) %>%
+      dplyr::mutate(
+        description = 
+          purrr::map_chr(description, function(x) {
+            if(stringr::str_detect(x, pattern = "\\.md$")) {
+              x <- paste0(dir_source, "/additional/", x)
+              readChar(x, file.info(x)$size)
+            } else {
+              x
+            }
+          })
+      )
+  ) %>%
+  pmird:::pm_update_import(
+    con = con, 
+    table_name = "method_steps", 
+    id_last = id_method_step_last
+  )
+
+method_steps_required <-
+  method_steps$required
+
+method_steps <-
+  method_steps$to_add
+```
+
+### pmird.citations_to_method_steps
+
+```{r citations_to_method_steps}
+citations_to_method_steps <- 
+  pmird::db_template_tables$citations_to_method_steps %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/citations_to_method_steps.csv"))
+  )
+
+id_method_step <-
+  method_steps_required %>%
+  dplyr::slice(!!citations_to_method_steps$id_method_step) %>%
+  dplyr::pull(id_method_step)
+
+citations_to_method_steps <-
+  citations_to_method_steps %>%
+  dplyr::mutate(id_method_step = !!id_method_step)
+```
+
+### pmird.method_steps_to_instruments
+
+```{r method_steps_to_instruments}
+method_steps_to_instruments <-  
+  pmird::db_template_tables$method_steps_to_instruments %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/method_steps_to_instruments.csv"))
+  )
+
+id_method_step <-
+  method_steps_required %>%
+  dplyr::slice(!!method_steps_to_instruments$id_method_step) %>%
+  dplyr::pull(id_method_step)
+
+id_instrument <-
+  instruments_required %>%
+  dplyr::slice(!!method_steps_to_instruments$id_instrument) %>%
+  dplyr::pull(id_instrument)
+
+method_steps_to_instruments <-
+  method_steps_to_instruments %>%
+  dplyr::mutate(
+    id_method_step = !!id_method_step,
+    id_instrument = !!id_instrument)
+```
+
+### pmird.quality_control_to_method_steps
+
+_Note_: For this dataset, all quality controls are described on the methods level.
+
+```{r quality_control_to_method_steps}
+quality_control_to_method_steps <-
+  pmird::db_template_tables$quality_control_to_method_steps %>%
+  dplyr::bind_rows(
+  )
+```
+
+
+### pmird.methods_to_method_steps
+
+_Note_: This data frame is further modified in the methods chunk.
+
+```{r method_steps_to_methods}
+methods_to_method_steps <-
+  pmird::db_template_tables$methods_to_method_steps %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/methods_to_method_steps.csv")) 
+  )
+
+id_method_step <-
+  method_steps_required %>%
+  dplyr::slice(!!methods_to_method_steps$id_method_step) %>%
+  dplyr::pull(id_method_step)
+
+methods_to_method_steps <-
+  methods_to_method_steps %>%
+  dplyr::mutate(
+    id_method_step = !!id_method_step
+  )
+```
+
+
+### pmird.methods
+
+```{r methods}
+methods <-
+  pmird::db_template_tables$methods %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/methods.csv")) %>%
+      dplyr::mutate(
+        sampling_description = 
+          purrr::map_chr(sampling_description, function(x) {
+            if(is.na(x)) {
+              x
+            } else if(stringr::str_detect(x, pattern = "\\.md$")) {
+              x <- paste0(dir_source, "/additional/", x)
+              readChar(x, file.info(x)$size)
+            }
+          })
+      ) %>%
+      dplyr::left_join(methods_to_method_steps, by = "id_method")
+  ) %>%
+  pmird:::pm_update_import(
+    con = con, 
+    table_name = "methods", 
+    id_last = id_method_last
+  ) %>%
+  purrr::map(dplyr::select, -comments, -id_method_step)
+
+methods_required <-
+  methods$required
+
+methods <-
+  methods$to_add
+
+# update id in methods_to_method_steps
+id_method <-
+  methods_required %>%
+  dplyr::slice(!!methods_to_method_steps$id_method) %>%
+  dplyr::pull(id_method)
+
+methods_to_method_steps <-
+  methods_to_method_steps %>%
+  dplyr::mutate(
+    id_method = !!id_method
+  )
+```
+
+
+### pmird.citations_to_methods
+
+```{r citations_to_methods}
+citations_to_methods <-
+  methods_required %>%
+  dplyr::left_join(methods_to_method_steps, by = "id_method") %>%
+  dplyr::left_join(citations_to_method_steps, by = "id_method_step") %>%
+  dplyr::select(id_method, id_citation) %>%
+  dplyr::distinct()
+
+# check
+# dplyr::left_join(methods_to_method_steps, methods, by = c("id_method")) %>% dplyr::left_join(method_steps, by = "id_method_step") %>%  dplyr::left_join(citations_to_methods, by = "id_method") %>% View()
+```
+
+## pmird.datasets
+
+### pmird.datasets
+
+Add information on datasets
+
+```{r datasets}
+intellectual_rights_file <- paste0(dir_source, "/additional/permission.md")
+acknowledgements_file <- paste0(dir_source, "/additional/acknowledgements.md")
+abstract_file <- paste0(dir_source, "/additional/abstract.md")
+refrence_publication <-
+  dm_pmird %>%
+  dm::dm_zoom_to(citations) %>%
+  dplyr::filter(id_citation %in% c("Munchberger.2019", "Munchberger.2019a")) %>%
+  dplyr::pull(bibtex) %>%
+  paste(collapse = "\n\n")
+
+datasets <-
+  db_template_tables$datasets %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_dataset = id_dataset,
+      title = "Peat core data from two peatlands in Tierra del Fuego",
+      pub_date = citations$YEAR[citations$BIBTEXKEY == "Munchberger.2019"],
+      language = citations$LANGID[citations$BIBTEXKEY == "Munchberger.2019"],
+      abstract = 
+        readChar(abstract_file, file.info(abstract_file)$size),
+      intellectual_rights = 
+        readChar(intellectual_rights_file, file.info(intellectual_rights_file)$size),
+      id_license = 
+        dm_pmird %>%
+        dm::dm_zoom_to(licenses) %>%
+        dplyr::filter(identifier == "CC BY 4.0") %>% 
+        dplyr::pull(id_license),
+      id_maintenance = 1L,
+      id_method = methods$id_method[[1]],
+      purpose = NA_character_,
+      introduction = NA_character_,
+      getting_started = NA_character_, # ---todo
+      acknowledgements = 
+        readChar(acknowledgements_file, file.info(acknowledgements_file)$size),
+      reference_publication = refrence_publication
+    )
+  )
+```
+
+### pmird.citations_to_datasets
+
+```{r citations_to_datasets}
+citations_to_datasets <-
+  pmird::db_template_tables$citations_to_datasets %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_dataset = datasets$id_dataset,
+      id_citation = citations$BIBTEXKEY
+    )
+  )
+```
+
+### pmird.attributes_to_datasets_to_methods
+
+```{r attributes_to_datasets_to_methods}
+# write attribute_names to a csv file #---note: don't overwrite here
+if(!file.exists(paste0(dir_source, "/additional/attributes_to_datasets_to_methods.csv"))) {
+  RMariaDB::dbGetQuery(con, "SELECT * FROM `attributes`") %>%
+    dplyr::select(attribute_name) %>%
+    dplyr::mutate(id_method = NA_integer_) %>%
+    write.csv(paste0(dir_source, "/additional/attributes_to_datasets_to_methods.csv"), 
+            row.names = FALSE)
+}
+
+# make sure that attribute ids match even if later additional attributes are added anywhere
+attributes_to_datasets_to_methods <-
+  pmird::db_template_tables$attributes_to_datasets_to_methods %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/additional/attributes_to_datasets_to_methods.csv")) %>%
+      dplyr::right_join(RMariaDB::dbGetQuery(con, "select * from attributes"), 
+                        by = "attribute_name") %>%
+      dplyr::arrange(id_attribute) %>%
+      dplyr::select(id_attribute, id_method) %>%
+      dplyr::mutate(id_dataset = !!datasets$id_dataset) %>% 
+      dplyr::filter(!is.na(id_method))
+  )
+
+# update id_method
+id_method <-
+  methods_required %>%
+  dplyr::slice(!!attributes_to_datasets_to_methods$id_method) %>%
+  dplyr::pull(id_method)
+
+attributes_to_datasets_to_methods <-
+  attributes_to_datasets_to_methods %>%
+  dplyr::mutate(
+    id_method = !!id_method
+  )
+
+# check
+# dplyr::left_join(attributes_to_datasets_to_methods, dbGetQuery(con, "select * from attributes"), by = "id_attribute") %>% dplyr::left_join(methods_to_method_steps, by = "id_method") %>% dplyr::left_join(method_steps, by = "id_method_step") %>% View()
+```
+
+### pmird.datasets_to_coverages
+
+```{r datasets_to_coverages}
+datasets_to_coverages <-
+  pmird::db_template_tables$datasets_to_coverages %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_dataset = datasets$id_dataset,
+      id_coverage = coverages$id_coverage
+    )
+  )
+```
+
+
+## pmird.licenses
+
+_Note_: Please add licenses with script `add-licenses.Rmd`.
+
+
+## pmird.maintenances
+
+```{r maintenances}
+maintenances <-
+  pmird:::db_template_tables$maintenances %>%
+  dplyr::bind_rows(
+  )
+```
+
+## pmird.maintenances_to_change_histories
+
+_Note_: For this dataset, no changes exist yet.
+
+```{r maintenances_to_change_histories}
+maintenances_to_change_histories <-
+  pmird::db_template_tables$maintenances_to_change_histories %>%
+  dplyr::bind_rows()
+```
+
+
+
+## pmird.persons
+
+```{r persons}
+persons <-
+  pmird::db_template_tables$persons %>%
+  dplyr::bind_rows(
+    read.csv(paste0(dir_source, "/authors_WM.csv")) %>%
+      dplyr::slice(-1) %>%
+      dplyr::rename(
+        sur_name = "author_surname",
+        given_name = "author_given_name",
+        electronic_mail_address = "author_email_address"
+      ) %>%
+      dplyr::select(sur_name, given_name, electronic_mail_address) %>%
+      dplyr::mutate(
+        electronic_mail_address = 
+          dplyr::case_when(
+            !sur_name %in% c("Münchberger", "Knorr") ~ NA_character_,
+            TRUE ~ electronic_mail_address
+          )
+      )
+    ) %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      sur_name = "Gałka",
+      given_name = "Mariusz"
+    )
+  ) %>%
+  dplyr::mutate(id_person = seq_len(nrow(.))) %>%
+  pmird:::pm_update_import(
+    con = con, 
+    table_name = "persons", 
+    id_last = id_person_last
+  )
+
+persons_required <-
+  persons$required
+
+persons <-
+  persons$to_add
+```
+
+## pmird.contacts
+
+-- todo: add and move behind ## pmird.persons
+
+```{r contacts}
+contacts <-
+  pmird::db_template_tables$contacts %>%
+  dplyr::bind_rows(
+    tibble::tibble(
+      id_dataset = datasets$id_dataset,
+      id_person = persons$id_person[[1]] # author of the thesis
+    )
+  )
+```
+
+
+# Add data to pmird
+
+```{r into-pmird}
+dm_insert_in <-
+  dm::dm(
+    geographic_coverages = geographic_coverages,
+    temporal_coverages = temporal_coverages,
+    taxonomic_coverages = taxonomic_coverages,
+    taxonomic_classifications = taxonomic_classifications,
+    taxclas_to_taxcovs = taxclas_to_taxcovs,
+    coverages = coverages,
+    instruments = instruments,
+    method_steps = method_steps,
+    quality_control = quality_control,
+    methods = methods,
+    maintenances = maintenances,
+    change_histories = change_histories,
+    maintenances_to_change_histories = maintenances_to_change_histories,
+    persons = persons,
+    datasets = datasets,
+    macrofossil_types = macrofossil_types,
+    mactyps_to_taxclas = mactyps_to_taxclas,
+    samples = samples
+    ) %>%
+  dm::copy_dm_to(con, ., temporary = TRUE)
+
+dm_insert_out <-
+  dm_pmird %>%
+  dm::dm_rows_insert(dm_insert_in, in_place = TRUE)
+
+dbAppendTable(con, name = "data", value = d)
+
+dm_pmird <-
+  pmird::pm_get_dm(con, learn_keys = TRUE)
+
+dm_insert_in <-
+  dm::dm(
+    data_to_samples = data_to_samples,
+    mir_metadata = mir_metadata,
+    macrofossils = macrofossils,
+    contacts = contacts,
+    citations_to_methods = citations_to_methods,
+    citations_to_quality_control = citations_to_quality_control,
+    citations_to_method_steps = citations_to_method_steps,
+    citations_to_samples = citations_to_samples,
+    citations_to_datasets = citations_to_datasets,
+    method_steps_to_instruments = method_steps_to_instruments,
+    methods_to_method_steps = methods_to_method_steps,
+    # methods_to_coverages = methods_to_coverages, # not in this dataset
+    quality_control_to_method_steps = quality_control_to_method_steps,
+    attributes_to_datasets_to_methods = attributes_to_datasets_to_methods,
+    datasets_to_coverages = datasets_to_coverages
+    ) %>%
+  dm::copy_dm_to(con, ., temporary = TRUE)
+
+dm_insert_out <-
+  dm_pmird %>%
+  dm::dm_rows_insert(dm_insert_in, in_place = TRUE)
+```
+
+```{r disconnect}
+RMariaDB::dbDisconnect(con)
+```
+
+# Todo

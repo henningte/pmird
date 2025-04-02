@@ -2,3 +2,9 @@
 .Rhistory
 .RData
 analysis
+inst/doc
+notes
+data_template
+inst/references_web.bib
+data-raw
+renv
