@@ -11,7 +11,7 @@ navbar:
     left:
     - home
     - about
-    - contribute
+    - references
     - news
     right: github
   components:
@@ -22,7 +22,6 @@ navbar:
       icon: fab fa-github fa-lg
       href: https://github.com/henningte/pmird/
     articles:
-    reference:
     about:
       text: About
       menu:

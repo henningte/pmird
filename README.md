@@ -7,7 +7,7 @@
 
 <!--]{style="float:right"} -->
 
-**peat mid infrared spectra data compendium**
+**R interface to the peatland mid infrared database**
 
 <!-- badges: start -->
 
@@ -17,18 +17,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 <!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)  -->
 
-pmird is an R package that has two major aims:
+pmird is an interface to the peatland mid infrared spectra database
+(pmird database). ‘pmird’ allows to access the pmird database as
+[`dm`](https://dm.cynkra.com/reference/dm.html) object.
 
-1.  Provide a comprehensive and easily to access data collection of mid
-    infrared spectra (MIR) of peat and related material (for example
-    peat forming vegetation or dissolved organic matter).
-
-2.  Combine this with additional data on peat characteristics, such as
-    bulk density or carbon content, to support the development of MIR
-    prediction models for these characteristics.
-
-pmird is a community-based project, where everybody can contribute and
-access data. Learn more about [how you can use the
+The pmird database is a community project, where everybody can
+contribute and access data. Learn more about [how you can use the
 data](https://henningte.github.io/pmird/articles/a05-How-to-access-data.html)\!
 
 <!-- ### How to cite
@@ -64,9 +58,7 @@ file
 
 ### Contributions
 
-We welcome contributions from everyone. Please note that this project is
-released with a [Contributor Code of Conduct](CONDUCT.md). By
-participating in this project you agree to abide by its terms.
-
-If you want to contribute to the code, please see our [code contributor
-guidelines](CONTRIBUTING.md).
+We welcome contributions from everyone. Please note that the pmird
+project is released with a [Contributor Code of
+Conduct](https://henningte.github.io/pmird//CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
