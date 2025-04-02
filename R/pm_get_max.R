@@ -30,6 +30,8 @@
 #' # when finished, disconnect
 #' RMariaDB::dbDisconnect(con)
 #' }
+#' @keywords Internal
+#' @noRd
 #' @export
 pm_get_max <- function(x, .col) {
 

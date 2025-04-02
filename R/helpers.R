@@ -152,10 +152,13 @@ pm_append_rows_csv_ff <- function(.table_name, .target_cols) {
 #' append rows.
 #' @return \code{TRUE} if appending rows was successful, otherwise \code{FALSE}.
 #' @keywords Internal
+#' @noRd
 #' @name pm_append_rows_csv
 NULL
 
 #' @rdname pm_append_rows_csv
+#' @keywords Internal
+#' @noRd
 pm_append_rows_csv_persons <-
   pm_append_rows_csv_ff(
     .table_name = "persons",
@@ -163,6 +166,8 @@ pm_append_rows_csv_persons <-
   )
 
 #' @rdname pm_append_rows_csv
+#' @keywords Internal
+#' @noRd
 pm_append_rows_csv_attributes <-
   pm_append_rows_csv_ff(
     .table_name = "attributes",

@@ -720,6 +720,7 @@ read_opus_bin_univ <- function(file_path, extract = c("spc"),
 #' files whose spectral data were extracted.
 #' @source Code and documentation are copied from the R package simplerspec (\url{https://github.com/philipp-baumann/simplerspec}).
 #' @keywords Internal
+#' @noRd
 #' @export
 read_opus_univ <- function(fnames,
                            extract = c("spc"),

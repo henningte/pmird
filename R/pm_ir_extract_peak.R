@@ -18,6 +18,8 @@
 #' corrected with \code{\link[ir:ir_bc_rubberband]{ir_bc_rubberband}} and with
 #' a new column \code{peak_direction} with value \code{"up"} if the peak is a
 #' maximum or \code{"down"} if not.
+#' @keywords Internal
+#' @noRd
 #' @export
 pm_ir_extract_peak <- function(x, range, peak_max = 2362, range_offset = 4) {
 

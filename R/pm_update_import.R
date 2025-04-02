@@ -85,6 +85,7 @@ pm_update_import <- function(x, con, table_name, id_last) {
 #' (same column names, no additional columns).
 #' @param table_name See \code{\link[pm_update_import]{pm_update_import}}.
 #' @keywords Internal
+#' @noRd
 #' @return A data frame with the same rows as the table \code{table_name} in the
 #' pmird database (if \code{con} is a database connection) or in the provided
 #' data frame (id \code{x} is a data frame) and with the folowing two columns:
