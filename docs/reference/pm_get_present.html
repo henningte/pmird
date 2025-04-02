@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • pmird</title>
+<title>Provides a unique ID for entities already present in the pmird database. — pm_get_present • pmird</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,10 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Provides a unique ID for entities already present in the pmird database. — pm_get_present" />
+<meta property="og:description" content="pm_get_present is a helper function to define a unique ID for entities
+already present in a table in the pmird database. This function is used by
+pm_update_import." />
 
 
 
@@ -58,7 +61,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,26 +143,51 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Provides a unique ID for entities already present in the pmird database.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pm_update_import.R'><code>R/pm_update_import.R</code></a></small>
+    <div class="hidden name"><code>pm_get_present.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="a05-How-to-access-data.html">How to access data</a></dt>
-        <dd></dt>
-        <dt><a href="a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a></dt>
-        <dd></dt>
-        <dt><a href="a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a></dt>
-        <dd></dt>
-        <dt><a href="a08-News.html">News</a></dt>
-        <dd></dt>
-        <dt><a href="a09-Sources.html">Sources</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p><code>pm_get_present</code> is a helper function to define a unique ID for entities
+already present in a table in the pmird database. This function is used by
+<code>pm_update_import</code>.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>pm_get_present</span>(<span class='no'>con</span>, <span class='no'>table_name</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>con</th>
+      <td><p>Either a database connection (see
+<code>pm_update_import</code>) or a data frame wit the
+same format as the table indicated by <code>table_name</code> in the pmird database
+(same column names, no additional columns).</p></td>
+    </tr>
+    <tr>
+      <th>table_name</th>
+      <td><p>See <code>pm_update_import</code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data frame with the same rows as the table <code>table_name</code> in the
+pmird database (if <code>con</code> is a database connection) or in the provided
+data frame (id <code>x</code> is a data frame) and with the folowing two columns:</p><ol>
+<li><p>The ID (primary key).</p></li>
+<li><p>A column <code>x_present</code> with the unique ID which can be used to
+ match entities across data frames.</p></li>
+</ol>
+
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

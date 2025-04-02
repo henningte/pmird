@@ -4,16 +4,43 @@
     <loc>https://henningte.github.io/pmird//index.html</loc>
   </url>
   <url>
-    <loc>https://henningte.github.io/pmird//articles/a01-Why-to-contribute.html</loc>
+    <loc>https://henningte.github.io/pmird//reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://henningte.github.io/pmird//articles/a02-What-I-plan-to-do-with-the-data.html</loc>
+    <loc>https://henningte.github.io/pmird//reference/pm_add_quantities.html</loc>
   </url>
   <url>
-    <loc>https://henningte.github.io/pmird//articles/a03-How-to-contribute.html</loc>
+    <loc>https://henningte.github.io/pmird//reference/pm_append_rows_csv.html</loc>
   </url>
   <url>
-    <loc>https://henningte.github.io/pmird//articles/a04-Data-dictionary.html</loc>
+    <loc>https://henningte.github.io/pmird//reference/pm_dm_add_keys.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_get_citations.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_get_dm.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_get_max.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_get_present.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_get_table.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_ir_extract_peak.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pm_load_spectra.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/pmird-package.html</loc>
+  </url>
+  <url>
+    <loc>https://henningte.github.io/pmird//reference/read_opus_univ.html</loc>
   </url>
   <url>
     <loc>https://henningte.github.io/pmird//articles/a05-How-to-access-data.html</loc>

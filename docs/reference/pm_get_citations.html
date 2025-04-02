@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • pmird</title>
+<title>Lists datasources to cite when using data from the pmird database — pm_get_citations • pmird</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,12 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Lists datasources to cite when using data from the pmird database — pm_get_citations" />
+<meta property="og:description" content="`pm_get_citations()` takes values from column `id_measurement` in table
+`measurements` from the pmird database and collects bibliographic
+information on the data sources which have to be cited when the respective
+data are used. The collected bibliographic information are exported to a
+bibtex file." />
 
 
 
@@ -58,7 +63,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,26 +145,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Lists datasources to cite when using data from the pmird database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pm_get_citations.R'><code>R/pm_get_citations.R</code></a></small>
+    <div class="hidden name"><code>pm_get_citations.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="a05-How-to-access-data.html">How to access data</a></dt>
-        <dd></dt>
-        <dt><a href="a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a></dt>
-        <dd></dt>
-        <dt><a href="a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a></dt>
-        <dd></dt>
-        <dt><a href="a08-News.html">News</a></dt>
-        <dd></dt>
-        <dt><a href="a09-Sources.html">Sources</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p>`pm_get_citations()` takes values from column `id_measurement` in table
+`measurements` from the pmird database and collects bibliographic
+information on the data sources which have to be cited when the respective
+data are used. The collected bibliographic information are exported to a
+bibtex file.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>pm_get_citations</span>(<span class='no'>con</span>, <span class='no'>x</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>con</th>
+      <td><p>A connection to the pmird database. This should be an object of
+class <code>MariaDBConnection</code>, created
+using <code>dbConnect</code>.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>A numeric vector with values from `id_measurement` from table
+`measurements` in the 'pmird' database.</p></td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td><p>A character value defining the path to the bibtex file where to
+write the collected bibliogrpahic information. Can be set to `NULL` to omit
+exporting anything to a file.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data frame as created by `bib2df::bib2df()` with two additional
+columns: `id_dataset` (the ID for the dataset) and `id_measurement` (unique
+values of `x` identifying the measurement corresponding to the respective
+dataset). As a side effect, unique values of column `bib` will be written
+to the file specified in `file` if `! is.null(file)`.</p>
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

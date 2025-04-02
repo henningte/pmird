@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>License • pmird</title>
+<title>Extracts a peak from an infrared spectrum — pm_ir_extract_peak • pmird</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="License" />
+<meta property="og:title" content="Extracts a peak from an infrared spectrum — pm_ir_extract_peak" />
+<meta property="og:description" content="pm_ir_extract_peak is a function specifically designed for pmird to
+help quality assessment of mid infrared spectra. It clips a mid infrared
+spectra to a defined region, baseline corrects this region, and identifies
+if the peak has a positive direction or a negative direction." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +74,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">pmird</a>
+        <a class="navbar-link" href="../index.html">pmird</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -78,7 +82,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
@@ -91,40 +95,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="index.html">pmird</a>
+      <a href="../index.html">pmird</a>
     </li>
     <li>
-      <a href="articles/a02-What-I-plan-to-do-with-the-data.html">What I plan to do with the data</a>
+      <a href="../articles/a05-How-to-access-data.html">How to access data</a>
     </li>
     <li>
-      <a href="articles/a05-How-to-access-data.html">How to access data</a>
+      <a href="../articles/a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a>
     </li>
     <li>
-      <a href="articles/a09-Sources.html">Sources</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Contribute!
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="articles/a01-Why-to-contribute.html">Why to contribute</a>
+      <a href="../articles/a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a>
     </li>
     <li>
-      <a href="articles/a03-How-to-contribute.html">How to contribute</a>
-    </li>
-    <li>
-      <a href="articles/a04-Data-dictionary.html">Data dictionary for the data templates</a>
-    </li>
-    <li>
-      <a href="articles/a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a>
-    </li>
-    <li>
-      <a href="articles/a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a>
+      <a href="../articles/a09-Sources.html">Sources</a>
     </li>
   </ul>
 </li>
@@ -136,7 +119,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/a08-News.html">News</a>
+      <a href="../articles/a08-News.html">News</a>
     </li>
   </ul>
 </li>
@@ -159,25 +142,62 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>License</h1>
+    <h1>Extracts a peak from an infrared spectrum</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pm_ir_extract_peak.R'><code>R/pm_ir_extract_peak.R</code></a></small>
+    <div class="hidden name"><code>pm_ir_extract_peak.Rd</code></div>
     </div>
 
-<pre>YEAR: 2020
-COPYRIGHT HOLDER: Henning Teickner
-</pre>
+    <div class="ref-description">
+    <p><code>pm_ir_extract_peak</code> is a function specifically designed for pmird to
+help quality assessment of mid infrared spectra. It clips a mid infrared
+spectra to a defined region, baseline corrects this region, and identifies
+if the peak has a positive direction or a negative direction.</p>
+    </div>
+
+    <pre class="usage"><span class='fu'>pm_ir_extract_peak</span>(<span class='no'>x</span>, <span class='no'>range</span>, <span class='kw'>peak_max</span> <span class='kw'>=</span> <span class='fl'>2362</span>, <span class='kw'>range_offset</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>An object of class <code><a href='https://henningte.github.io/ir/reference/ir_new_ir.html'>ir</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>range</th>
+      <td><p>A data frame with one row. See
+<code><a href='https://henningte.github.io/ir/reference/ir_clip.html'>ir_clip</a></code>. This is the range which is extracted from
+<code>x</code>.</p></td>
+    </tr>
+    <tr>
+      <th>peak_max</th>
+      <td><p>A numeric value representing the wavenumber value where the
+peak maximum (or minimum if the peak has a negative direction) is.</p></td>
+    </tr>
+    <tr>
+      <th>range_offset</th>
+      <td><p>A positive numeric value representing the offset which is
+additionally clipped from the x axis range given by <code>range</code> to avoid
+artifacts during baseline correction.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p><code>x</code> clipped to <code>range</code> (less <code>range_offset</code>), baseline
+corrected with <code><a href='https://henningte.github.io/ir/reference/ir_bc_rubberband.html'>ir_bc_rubberband</a></code> and with
+a new column <code>peak_direction</code> with value <code>"up"</code> if the peak is a
+maximum or <code>"down"</code> if not.</p>
 
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
-
 
 
       <footer>

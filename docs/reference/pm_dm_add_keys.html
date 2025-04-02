@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • pmird</title>
+<title>Adds primary and foreign keys to a <code>dm</code> object with tables from the pmird database — pm_dm_add_keys • pmird</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,10 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Adds primary and foreign keys to a <code>dm</code> object with tables from the pmird database — pm_dm_add_keys" />
+<meta property="og:description" content="pm_dm_add_keys is a helper function that takes a dm object
+with tables from the pmird database, adds the primary and foreign keys,
+and checks whether these are valid, using dm_examine_constraints." />
 
 
 
@@ -58,7 +61,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,26 +143,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Adds primary and foreign keys to a <code>dm</code> object with tables from the pmird database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pm_dm_add_keys.R'><code>R/pm_dm_add_keys.R</code></a></small>
+    <div class="hidden name"><code>pm_dm_add_keys.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="a05-How-to-access-data.html">How to access data</a></dt>
-        <dd></dt>
-        <dt><a href="a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a></dt>
-        <dd></dt>
-        <dt><a href="a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a></dt>
-        <dd></dt>
-        <dt><a href="a08-News.html">News</a></dt>
-        <dd></dt>
-        <dt><a href="a09-Sources.html">Sources</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p><code>pm_dm_add_keys</code> is a helper function that takes a <code>dm</code> object
+with tables from the pmird database, adds the primary and foreign keys,
+and checks whether these are valid, using <code><a href='https://dm.cynkra.com/reference/dm_examine_constraints.html'>dm_examine_constraints</a></code>.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>pm_dm_add_keys</span>(<span class='no'>x</span>, <span class='no'>dm_pmird</span>, <span class='kw'>progress</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code><a href='https://dm.cynkra.com/reference/dm.html'>dm</a></code> object with tables from pmird database.</p></td>
+    </tr>
+    <tr>
+      <th>dm_pmird</th>
+      <td><p>A <code><a href='https://dm.cynkra.com/reference/dm.html'>dm</a></code> object representing the pmird
+database.</p></td>
+    </tr>
+    <tr>
+      <th>progress</th>
+      <td><p>A logical value. See <code><a href='https://dm.cynkra.com/reference/dm_examine_constraints.html'>dm_examine_constraints</a></code>.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p><code>x</code> with added primary and foreign keys.</p>
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

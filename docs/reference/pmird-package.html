@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contributing • pmird</title>
+<title>pmird: R interface to the peatland mid infrared spectra database — pmird-package • pmird</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Contributing" />
+<meta property="og:title" content="pmird: R interface to the peatland mid infrared spectra database — pmird-package" />
+<meta property="og:description" content="The 'pmird' package provides functions to interact with the 
+    'pmird' database. The 'pmird' database stores mid infrared spectra of peat, 
+    peat forming vegetation and dissolved organic matter along with metadata on 
+    samples and additional data (e.g., elemental contents)." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +74,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">pmird</a>
+        <a class="navbar-link" href="../index.html">pmird</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -78,7 +82,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
@@ -91,40 +95,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="index.html">pmird</a>
+      <a href="../index.html">pmird</a>
     </li>
     <li>
-      <a href="articles/a02-What-I-plan-to-do-with-the-data.html">What I plan to do with the data</a>
+      <a href="../articles/a05-How-to-access-data.html">How to access data</a>
     </li>
     <li>
-      <a href="articles/a05-How-to-access-data.html">How to access data</a>
+      <a href="../articles/a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a>
     </li>
     <li>
-      <a href="articles/a09-Sources.html">Sources</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Contribute!
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="articles/a01-Why-to-contribute.html">Why to contribute</a>
+      <a href="../articles/a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a>
     </li>
     <li>
-      <a href="articles/a03-How-to-contribute.html">How to contribute</a>
-    </li>
-    <li>
-      <a href="articles/a04-Data-dictionary.html">Data dictionary for the data templates</a>
-    </li>
-    <li>
-      <a href="articles/a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a>
-    </li>
-    <li>
-      <a href="articles/a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a>
+      <a href="../articles/a09-Sources.html">Sources</a>
     </li>
   </ul>
 </li>
@@ -136,7 +119,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/a08-News.html">News</a>
+      <a href="../articles/a08-News.html">News</a>
     </li>
   </ul>
 </li>
@@ -159,70 +142,38 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Contributing</h1>
+    <h1>pmird: R interface to the peatland mid infrared spectra database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pmird-package.R'><code>R/pmird-package.R</code></a></small>
+    <div class="hidden name"><code>pmird-package.Rd</code></div>
     </div>
 
-<div id="contributing" class="section level1">
+    <div class="ref-description">
+    <p>The 'pmird' package provides functions to interact with the 
+    'pmird' database. The 'pmird' database stores mid infrared spectra of peat, 
+    peat forming vegetation and dissolved organic matter along with metadata on 
+    samples and additional data (e.g., elemental contents).</p>
+    </div>
 
-<p>We love pull requests from everyone. By participating in this project, you agree to abide by our <a href="CONDUCT.html">code of conduct</a>.</p>
-<div id="getting-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>Getting Started</h2>
-<ul>
-<li><p>Make sure you have a <a href="https://github.com/signup/free">GitHub account</a>. If you are not familar with git and GitHub, take a look at <a href="http://happygitwithr.com/" class="uri">http://happygitwithr.com/</a> to get started.</p></li>
-<li>
-<p><a href="https://github.com/henningte/pmird/issues/">Submit a post for your issue</a>, assuming one does not already exist.</p>
-<ul>
-<li>Clearly describe your issue, including steps to reproduce when it is a bug, or some justification for a proposed improvement.</li>
+
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='https://github.com/henningte/pmird'>https://github.com/henningte/pmird</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/henningte/pmird/issues'>https://github.com/henningte/pmird/issues</a></p></li>
 </ul>
-</li>
-<li>
-<p><a href="https://github.com/henningte/pmird/#fork-destination-box">Fork</a> the repository on GitHub to make a copy of the repository on your account. Or use this line in your shell terminal:</p>
-<p><code>git clone git@github.com:your-username/&lt;REPO&gt;.git</code></p>
-</li>
-</ul>
-</div>
-<div id="making-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#making-changes" class="anchor"></a>Making changes</h2>
-<ul>
-<li>Edit the files, save often, and make commits of logical units, where each commit indicates one concept</li>
-<li>Follow our <a href="http://adv-r.had.co.nz/Style.html">style guide</a>.</li>
-<li>Make sure you write <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">good commit messages</a>.</li>
-<li>Make sure you have added the necessary tests for your code changes.</li>
-<li>Run <em>all</em> the tests using <code><a href="https://devtools.r-lib.org//reference/check.html">devtools::check()</a></code> to assure nothing else was accidentally broken.</li>
-<li>If you need help or unsure about anything, post an update to <a href="https://github.com/henningte/pmird/issues/">your issue</a>.</li>
-</ul>
-</div>
-<div id="submitting-your-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#submitting-your-changes" class="anchor"></a>Submitting your changes</h2>
-<p>Push to your fork and <a href="https://github.com/henningte/pmird/compare/">submit a pull request</a>.</p>
-<p>At this point you’re waiting on us. We like to at least comment on pull requests within a few days (and, typically, one business day). We may suggest some changes or improvements or alternatives.</p>
-<p>Some things you can do that will increase the chance that your pull request is accepted:</p>
-<ul>
-<li>Engage in discussion on <a href="https://github.com/henningte/pmird/issues/">your issue</a>.</li>
-<li>Be familiar with the backround literature cited in the <a href="README.Rmd">README</a>
-</li>
-<li>Write tests that pass.</li>
-<li>Follow our <a href="http://adv-r.had.co.nz/Style.html">code style guide</a>.</li>
-<li>Write a <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">good commit message</a>.</li>
-</ul>
-</div>
+
 </div>
 
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
-
 
 
       <footer>

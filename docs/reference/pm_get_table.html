@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • pmird</title>
+<title>Function to extract a table from the pmird database — pm_get_table • pmird</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Function to extract a table from the pmird database — pm_get_table" />
+<meta property="og:description" content="Function to extract a table from the pmird database" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,26 +141,60 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Function to extract a table from the pmird database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/helpers.R'><code>R/helpers.R</code></a></small>
+    <div class="hidden name"><code>pm_get_table.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="a05-How-to-access-data.html">How to access data</a></dt>
-        <dd></dt>
-        <dt><a href="a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a></dt>
-        <dd></dt>
-        <dt><a href="a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a></dt>
-        <dd></dt>
-        <dt><a href="a08-News.html">News</a></dt>
-        <dd></dt>
-        <dt><a href="a09-Sources.html">Sources</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p>Function to extract a table from the pmird database</p>
     </div>
+
+    <pre class="usage"><span class='fu'>pm_get_table</span>(<span class='no'>x</span>, <span class='no'>.table_name</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>dm</code> object as created using <code><a href='pm_get_dm.html'>pm_get_dm</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>.table_name</th>
+      <td><p>A character value with the name of the table in the pmird
+database from which to append new rows to a csv file.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code>tibble</code> representing the extracted table.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># connect to database</span>
+<span class='no'>con</span> <span class='kw'>&lt;-</span>
+  <span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'>dbConnect</span>( <span class='co'># ---todo: change this</span>
+    <span class='kw'>drv</span> <span class='kw'>=</span> <span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'><a href='https://rmariadb.r-dbi.org/reference/dbConnect-MariaDBDriver-method.html'>MariaDB</a></span>(),
+    <span class='kw'>dbname</span> <span class='kw'>=</span> <span class='st'>"pmird"</span>,
+    <span class='kw'>default.file</span> <span class='kw'>=</span> <span class='st'>"~/my.cnf"</span>
+  )
+
+<span class='co'># get dm object</span>
+<span class='no'>dm_pmird</span> <span class='kw'>&lt;-</span>
+   <span class='kw pkg'>pmird</span><span class='kw ns'>::</span><span class='fu'><a href='pm_get_dm.html'>pm_get_dm</a></span>(<span class='no'>con</span>, <span class='kw'>learn_keys</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># get table datasets</span>
+<span class='no'>datasets</span> <span class='kw'>&lt;-</span>
+   <span class='kw pkg'>pmird</span><span class='kw ns'>::</span><span class='fu'>pm_get_table</span>(<span class='kw'>.table_name</span> <span class='kw'>=</span> <span class='st'>"datasets"</span>)
+
+<span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'>dbDisconnect</span>(<span class='no'>con</span>)
+}</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • pmird</title>
+<title>Takes a <code>zoomed_dm</code> object or a data frame and returns the largest element of a certain column. — pm_get_max • pmird</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,11 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Takes a <code>zoomed_dm</code> object or a data frame and returns the largest element of a certain column. — pm_get_max" />
+<meta property="og:description" content="pm_get_max takes a zoomed_dm object or a data frame and the
+name of a specific column and returns the maximum value of this column in the
+zoomed_dm object or data frame. pm_get_max is used as helper
+function to extract the last identifier in a table in the pmird database." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -140,26 +144,64 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Takes a <code>zoomed_dm</code> object or a data frame and returns the largest element of a certain column.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/henningte/pmird/blob/master/R/pm_get_max.R'><code>R/pm_get_max.R</code></a></small>
+    <div class="hidden name"><code>pm_get_max.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="a05-How-to-access-data.html">How to access data</a></dt>
-        <dd></dt>
-        <dt><a href="a06-Authorship-guidelines-for-pmird.html">Authorship guidelines for pmird</a></dt>
-        <dd></dt>
-        <dt><a href="a07-Authorship-guidelines-for-the-data-paper.html">Authorship guidelines for the data paper</a></dt>
-        <dd></dt>
-        <dt><a href="a08-News.html">News</a></dt>
-        <dd></dt>
-        <dt><a href="a09-Sources.html">Sources</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p><code>pm_get_max</code> takes a <code>zoomed_dm</code> object or a data frame and the
+name of a specific column and returns the maximum value of this column in the
+<code>zoomed_dm</code> object or data frame. <code>pm_get_max</code> is used as helper
+function to extract the last identifier in a table in the pmird database.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>pm_get_max</span>(<span class='no'>x</span>, <span class='no'>.col</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>zoomed_dm</code> object or a data frame.</p></td>
+    </tr>
+    <tr>
+      <th>.col</th>
+      <td><p>The name of a column in <code>x</code> for which to extract the largest
+number.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The maximum value in the column <code>.col</code> in <code>x</code> or 0 if
+<code>x</code> has no rows.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># connect to database</span>
+<span class='no'>con</span> <span class='kw'>&lt;-</span>
+  <span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'>dbConnect</span>( <span class='co'># ---todo: change this</span>
+    <span class='kw'>drv</span> <span class='kw'>=</span> <span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'><a href='https://rmariadb.r-dbi.org/reference/dbConnect-MariaDBDriver-method.html'>MariaDB</a></span>(),
+    <span class='kw'>dbname</span> <span class='kw'>=</span> <span class='st'>"pmird"</span>,
+    <span class='kw'>default.file</span> <span class='kw'>=</span> <span class='st'>"~/my.cnf"</span>
+  )
+
+<span class='co'># get pmird database as dm object</span>
+<span class='no'>dm_pmird</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='pm_get_dm.html'>pm_get_dm</a></span>(<span class='no'>con</span>, <span class='kw'>learn_keys</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># extract the last ID from a table</span>
+<span class='kw pkg'>dm</span><span class='kw ns'>::</span><span class='fu'><a href='https://dm.cynkra.com/reference/dm_zoom_to.html'>dm_zoom_to</a></span>(<span class='no'>datasets</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>pm_get_max</span>(<span class='kw'>.col</span> <span class='kw'>=</span> <span class='no'>id_dataset</span>)
+
+<span class='co'># when finished, disconnect</span>
+<span class='kw pkg'>RMariaDB</span><span class='kw ns'>::</span><span class='fu'>dbDisconnect</span>(<span class='no'>con</span>)
+}</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
