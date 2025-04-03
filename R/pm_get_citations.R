@@ -31,7 +31,7 @@ pm_get_citations <- function(con, x, file = NULL) {
   # avoid package check message
   datasets <- samples <- data_to_samples <- NULL
 
-  stopifnot(x > 0 && x %% 1 == 0)
+  stopifnot(all(x > 0) && all(x%%1 == 0))
   stopifnot((is.character(file) && length(file) == 1) || is.null(file))
 
   # get dm object
