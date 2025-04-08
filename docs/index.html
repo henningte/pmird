@@ -114,13 +114,110 @@
 <!-- badges: start -->
 <p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <!-- badges: end --></p>
 <!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)  -->
-<p>pmird is an interface to the peatland mid infrared spectra database (pmird database). ‘pmird’ allows to access the pmird database as <a href="https://dm.cynkra.com/reference/dm.html"><code>dm</code></a> object.</p>
-<p>The pmird database is a community project, where everybody can contribute and access data. Learn more about <a href="https://henningte.github.io/pmird/articles/a05-How-to-access-data.html">how you can use the data</a>!</p>
+<p>pmird is an interface to the peatland mid infrared spectra database (pmird database) (Teickner, Pebesma, and Knorr 2025). ‘pmird’ allows to access the pmird database as <a href="https://dm.cynkra.com/reference/dm.html"><code>dm</code></a> object.</p>
+<p>The pmird package can be installed as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"henningte/pmird"</span>)</pre></div>
+<p>The pmird database can be downloaded from Zotero (Teickner, Pebesma, and Knorr 2025). The downloaded database needs to be imported in a running MariaDB instance. In a linux terminal, the downloaded sql file can be imported like so:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">mysql</span> -u<span class="op">&lt;</span>user<span class="op">&gt;</span> -p<span class="op">&lt;</span>password<span class="op">&gt;</span> pmird <span class="op">&lt;</span> pmird-backup-2025-04-03.sql</span></code></pre></div>
+<p>Here, <user> and <password> are the respective database user name and password.</password></user></p>
+<p>The database itself does not contain the infrared spectra. These data are in folder <code>pmird_prepared_data</code> which needs to be stored at any place in the file system.</p>
+<p>Once the database is set up and runs in a ‘MariaDB’ instance, it can be accessed from within R, using the ‘RMariaDB’ package (Müller et al. 2021):</p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">pmird</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">RMariaDB</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">magrittr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ir</span>)
+<span class="co">#&gt; Registered S3 methods overwritten by 'tibble':</span>
+<span class="co">#&gt;   method     from  </span>
+<span class="co">#&gt;   format.tbl pillar</span>
+<span class="co">#&gt;   print.tbl  pillar</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">quantities</span>)
+<span class="co">#&gt; Loading required package: units</span>
+<span class="co">#&gt; Warning: package 'units' was built under R version 4.0.5</span>
+<span class="co">#&gt; udunits database from /usr/share/xml/udunits/udunits2.xml</span>
+<span class="co">#&gt; Loading required package: errors</span>
+
+<span class="co"># connect to database</span>
+<span class="no">con</span> <span class="kw">&lt;-</span>
+  <span class="kw pkg">RMariaDB</span><span class="kw ns">::</span><span class="fu">dbConnect</span>(
+    <span class="kw">drv</span> <span class="kw">=</span> <span class="kw pkg">RMariaDB</span><span class="kw ns">::</span><span class="fu"><a href="https://rmariadb.r-dbi.org/reference/dbConnect-MariaDBDriver-method.html">MariaDB</a></span>(),
+    <span class="kw">dbname</span> <span class="kw">=</span> <span class="st">"pmird"</span>,
+    <span class="kw">default.file</span> <span class="kw">=</span> <span class="st">"~/my.cnf"</span>,
+    <span class="kw">groups</span> <span class="kw">=</span> <span class="st">"rs-dbi"</span>
+  )</pre></div>
+<p>Here, <code>my.cnf</code> is a text file that stores user and password information for the database server.</p>
+<p>From this on, the ‘pmird’ R package can be used to access the database. The ‘pmird’ R package makes use of the R package ‘dm’ (Schieferdecker, Müller, and Bergant 2022) to access and manipulate the database contents. <code><a href="reference/pm_get_dm.html">pmird::pm_get_dm()</a></code> creates a <code>dm</code> object which stores the database structure.</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="co"># create the dm object</span>
+<span class="no">dm_pmird</span> <span class="kw">&lt;-</span> <span class="kw pkg">pmird</span><span class="kw ns">::</span><span class="fu"><a href="reference/pm_get_dm.html">pm_get_dm</a></span>(<span class="no">con</span>, <span class="kw">learn_keys</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<p>The option <code>learn_keys = TRUE</code> means that information on the primary and foreign key are added to the dm object.<br>
+A <code>dm</code> object is a representation of the entire database and allows comfortable manipulation of the database from within R (e.g. addition of new rows to tables, addition of new tables, data queries) (Schieferdecker, Müller, and Bergant 2022).</p>
+<div id="use-case-obtaining-general-information-on-the-datasets-contained-in-the-pmird-database" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use-case-obtaining-general-information-on-the-datasets-contained-in-the-pmird-database" class="anchor"></a>Use case: obtaining general information on the datasets contained in the ‘pmird’ database</h2>
+<p>General information on the datasets contained in the ‘pmird’ database are stored in table <code>datasets</code>. The ‘pmird’ R package provides a function to obtain this table from the <code>dm</code> object (<code>pmird::pm_get_table(.table_name = "datasets)</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="r"><span class="co"># extract the datasets table</span>
+<span class="no">pmird_datasets</span> <span class="kw">&lt;-</span>
+  <span class="no">dm_pmird</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">pmird</span><span class="kw ns">::</span><span class="fu"><a href="reference/pm_get_table.html">pm_get_table</a></span>(<span class="kw">.table_name</span> <span class="kw">=</span> <span class="st">"datasets"</span>)</pre></div>
+<p>This table can, for example, be used to select studies for which to extract data from the ‘pmird’ database.</p>
+</div>
+<div id="use-case-extracting-data-for-a-specific-dataset-from-the-pmird-database" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use-case-extracting-data-for-a-specific-dataset-from-the-pmird-database" class="anchor"></a>Use case: extracting data for a specific dataset from the ‘pmird’ database</h2>
+<p>Assume you are interested in viewing all measured data for one specific dataset, e.g. the dataset with <code>id_dataset == 8</code> in <code>pmird_datasets</code>. Using the ‘dm’ package and the <code>dm</code> object representing the ‘pmird’ database (<code>dm_pmird</code>), this data can be obtained as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="r"><span class="co"># get data for the dataset with ID 8</span>
+<span class="no">d8</span> <span class="kw">&lt;-</span>
+  <span class="no">dm_pmird</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/dm_zoom_to.html">dm_zoom_to</a></span>(<span class="no">datasets</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">filter</a></span>(<span class="no">id_dataset</span> <span class="kw">==</span> <span class="fl">8</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">left_join</a></span>(<span class="no">samples</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_dataset"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">left_join</a></span>(<span class="no">data_to_samples</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_sample"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">left_join</a></span>(<span class="no">data</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_measurement"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">left_join</a></span>(<span class="no">mir_metadata</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_measurement"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/reexports.html">left_join</a></span>(<span class="no">macrofossils</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"id_measurement"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dm</span><span class="kw ns">::</span><span class="fu"><a href="https://dm.cynkra.com/reference/pull_tbl.html">pull_tbl</a></span>() <span class="kw">%&gt;%</span>
+  <span class="kw pkg">tibble</span><span class="kw ns">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>()</pre></div>
+<p>The resulting data frame (<code>d8</code>) contains information on all samples and measurements for the dataset with <code>id_dataset == 8</code>. <code>d8</code> does not yet contain any spectra, but stores only information on the respective file paths to the downloaded spectra files within the downloaded folder <code>pmird_prepared_data</code>.</p>
+<p>To load the spectra, you can use the function <code>pmird::pmird_load_spectra()</code>. In addition, you have to specify via argument <code>directory</code> in which folder <code>pmird_prepared_data</code> is stored (on the computer used for this tutorial, this was <code>".."</code>):</p>
+<div class="sourceCode" id="cb7"><pre class="r"><span class="co"># load the spectra</span>
+<span class="no">d8</span> <span class="kw">&lt;-</span> <span class="kw pkg">pmird</span><span class="kw ns">::</span><span class="fu"><a href="reference/pm_load_spectra.html">pm_load_spectra</a></span>(<span class="no">d8</span>, <span class="kw">directory</span> <span class="kw">=</span> <span class="st">".."</span>)</pre></div>
+<p><code><a href="reference/pm_load_spectra.html">pm_load_spectra()</a></code> is a wrapper function around functions from the package ‘ir’ (Teickner 2022) which in turn are wrappers around <code>read.spc()</code> (Beleites and Sergo 2021) and <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code>. <code><a href="reference/pm_load_spectra.html">pm_load_spectra()</a></code> therefore can load spectra both saved as spc and csv files. <code><a href="reference/pm_load_spectra.html">pm_load_spectra()</a></code> also converts <code>d8</code> into an object of class <code>ir</code> from the ‘ir’ package. ‘ir’ provides functions for spectral preprocessing and manipulation (Teickner 2022) and is compatible with the ‘irpeat’ package which provides functions to analyze peat MIRS and spectral prediction models to predict peat properties from MIRS (Teickner and Hodgkins 2022).</p>
+</div>
+<div id="use-case-handling-units-and-measurement-errors" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use-case-handling-units-and-measurement-errors" class="anchor"></a>Use case: Handling units and measurement errors</h2>
+<p>The R package ‘qauntities’ (Pebesma, Mailund, and Hiebert 2016; Ucar, Pebesma, and Azcorra 2018) can be used to add units and measurement errors to measured variables from the ‘pmird’ database. The ‘pmird’ R package allows batch unit and measurement error assignment:</p>
+<div class="sourceCode" id="cb8"><pre class="r"><span class="co"># add information on units and errors with the 'quantities' package</span>
+<span class="no">d8</span> <span class="kw">&lt;-</span>
+  <span class="no">d8</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">pmird</span><span class="kw ns">::</span><span class="fu"><a href="reference/pm_add_quantities.html">pm_add_quantities</a></span>()
+
+<span class="co"># show some values</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">d8</span>$<span class="no">N</span>, <span class="fl">3</span>)
+<span class="co">#&gt; Units: [g/g]</span>
+<span class="co">#&gt; Errors: 0.0000996441 0.0001036096 0.0001168346</span>
+<span class="co">#&gt; [1] 0.014054321 0.007934011 0.021408554</span></pre></div>
+</div>
+<div id="use-case-generating-data-citations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use-case-generating-data-citations" class="anchor"></a>Use case: Generating data citations</h2>
+<p>Whoever uses data from the ‘pmird’ database must cite, in addition to the database, the original data sources for the used datasets. To make this straightforward, the ‘pmird’ R package contains the function <code><a href="reference/pm_get_citations.html">pm_get_citations()</a></code> to generate such a citation list for any extracted data subset:</p>
+<div class="sourceCode" id="cb9"><pre class="r"><span class="co"># collect all citations for `d8`:</span>
+<span class="no">d8_citations</span> <span class="kw">&lt;-</span>
+  <span class="fu"><a href="reference/pm_get_citations.html">pm_get_citations</a></span>(
+    <span class="kw">con</span> <span class="kw">=</span> <span class="no">con</span>,
+    <span class="kw">x</span> <span class="kw">=</span> <span class="no">d8</span>$<span class="no">id_measurement</span>,
+    <span class="kw">file</span> <span class="kw">=</span> <span class="st">"d8_citations.bib"</span>
+  )
+<span class="co">#&gt; Loading required namespace: bib2df</span>
+
+<span class="co"># close connection to database</span>
+<span class="kw pkg">RMariaDB</span><span class="kw ns">::</span><span class="fu">dbDisconnect</span>(<span class="no">con</span>)</pre></div>
+<p>The function takes column <code>id_measurement</code> of the extracted data and collects citations for all relevant data sources from the database. The results are exported to a bibtex file which is defined via argument <code>file</code>. This file can be imported to literature reference software. In this case, since the data have not been previously published, the created bibtex file is empty. <code>RMariaDB::dbDisconnect(con)</code> closes the connection to the database, as this is the final use case presented here.</p>
 <!-- ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2025). _Compendium of R code and data for Title of your paper goes here_. Accessed 02 Apr 2025. Online at <https://doi.org/xxx/xxx>
+> Authors, (2025). _Compendium of R code and data for Title of your paper goes here_. Accessed 08 Apr 2025. Online at <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
@@ -146,6 +243,37 @@ remotes::install_github("/")
 <h3 class="hasAnchor">
 <a href="#contributions" class="anchor"></a>Contributions</h3>
 <p>We welcome contributions from everyone. Please note that the pmird project is released with a <a href="https://henningte.github.io/pmird//CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div id="references" class="section level3">
+<h3 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h3>
+<div id="refs" class="references">
+<div id="ref-Beleites-2021">
+<p>Beleites, Claudia, and Valter Sergo. 2021. “hyperSpec: A Package to Handle Hyperspectral Data Sets in R.”</p>
+</div>
+<div id="ref-Muller-2021a">
+<p>Müller, Kirill, Jeroen Ooms, David James, Saikat DebRoy, Hadley Wickham, and Jeffrey Horner. 2021. “RMariaDB: Database Interface and ’MariaDB’ Driver.”</p>
+</div>
+<div id="ref-Pebesma-2016">
+<p>Pebesma, Edzer, Thomas Mailund, and James Hiebert. 2016. “Measurement Units in R.” <em>R Journal</em> 8 (2): 486–94. <a href="https://doi.org/10.32614/RJ-2016-061" class="uri">https://doi.org/10.32614/RJ-2016-061</a>.</p>
+</div>
+<div id="ref-Schieferdecker-2022">
+<p>Schieferdecker, Tobias, Kirill Müller, and Darko Bergant. 2022. “dm: Relational Data Models.”</p>
+</div>
+<div id="ref-Teickner-2022e">
+<p>Teickner, Henning. 2022. “ir: Functions to Handle and Preprocess Infrared Spectra.” Zenodo. <a href="https://doi.org/10.5281/ZENODO.6644806" class="uri">https://doi.org/10.5281/ZENODO.6644806</a>.</p>
+</div>
+<div id="ref-Teickner-2022d">
+<p>Teickner, Henning, and Suzanne Hodgkins. 2022. “irpeat 0.2.0: Functions to Analyze Mid-Infrared Spectra of Peat Samples.” Zenodo. <a href="https://doi.org/10.5281/ZENODO.7262744" class="uri">https://doi.org/10.5281/ZENODO.7262744</a>.</p>
+</div>
+<div id="ref-Teickner-2025c">
+<p>Teickner, Henning, Edzer Pebesma, and Klaus-Holger Knorr. 2025. “Peatland Mid Infrared Spectra Database.”</p>
+</div>
+<div id="ref-Ucar-2018">
+<p>Ucar, Iñaki, Edzer Pebesma, and Arturo Azcorra. 2018. “Measurement Errors in R.” <em>R Journal</em> 10 (2): 549–57. <a href="https://doi.org/10.32614/RJ-2018-075" class="uri">https://doi.org/10.32614/RJ-2018-075</a>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
   </div>

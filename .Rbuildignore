@@ -30,3 +30,4 @@ analysis
 ^inst/extdata/data_attributes\.csv
 ^inst/extdata/custom_eml_unittypes\.csv
 ^inst/extdata/custom_eml_units\.csv
+^CODE_OF_CONDUCT\.md$

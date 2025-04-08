@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r packages}
+```{r packages, include=FALSE}
 library(magrittr)
 library(kableExtra)
 ```
@@ -23,13 +23,13 @@ library(kableExtra)
 
 This document is intended to foster an open dialog on authorship to the data paper on the data compendium pmird. Note that there are separate [authorship guidelines for the data compendium pmird itself](a06-Authorship-guidelines-for-pmird.html). The document is based on the authorship guidelines template document developed by @Oliver.2018.
 
-In the table below, all tasks for the succesful finalization and submission of the manuscript for the data paper on pmird are listed. In the right column, the names of all current co-authors are listed for the respective task. This document is continuously updated if there are new contributions to the manuscript.
+<!--In the table below, all tasks for the succesful finalization and submission of the manuscript for the data paper on pmird are listed. In the right column, the names of all current co-authors are listed for the respective task. This document is continuously updated if there are new contributions to the manuscript.
 
-The information provided in this table are the basis for the authorship order and the description of individual contributions to the data paper according to the guidelines listed below.
+The information provided in this table are the basis for the authorship order and the description of individual contributions to the data paper according to the guidelines listed below.-->
 
 If you feel that you are not appropriately acknowledged, that some of the guidelines are not acceptable for you, or you want to participiate in additional activities, contact henning.teickner@uni-muenster.de or open an [issue](https://github.com/henningte/pmird/issues) and describe your problem. 
 
-## Activities
+<!--## Activities
 
 ```{r activities}
 rbind( 
@@ -63,9 +63,11 @@ c("m) Other", ""),
   kableExtra::pack_rows("Category 5: OTHER", 15, 15)
 ```
 
+-->
+
 All authors are expected to perform a critical review of the manuscript at least once for intellectual context (i.e., not just spelling/grammatical edits, and not only comments that suggest revisions, but rather making the actual revisions).
 
-All authors have to respond to a request of the lead author to approve the manuscript for submission or resubmission within four weeks. All persons who do not fulfill this requirement this are not considered as co-authors any more and moved to the acknowledgement section instead. They may rejoin the authors if (1) they reply before the final submission of the manuscript and (2) follow the remaining requirements of the author guidelines.
+<!--All authors have to respond to a request of the lead author to approve the manuscript for submission or resubmission within four weeks. All persons who do not fulfill this requirement this are not considered as co-authors any more and moved to the acknowledgement section instead. They may rejoin the authors if (1) they reply before the final submission of the manuscript and (2) follow the remaining requirements of the author guidelines.-->
 
 ## Guidelines
 
