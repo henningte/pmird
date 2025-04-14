@@ -18,9 +18,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)  -->
 
 pmird is an interface to the peatland mid infrared spectra database
-(pmird database) (Teickner, Pebesma, and Knorr 2025). ‘pmird’ allows to
-access the pmird database as
-[`dm`](https://dm.cynkra.com/reference/dm.html) object.
+(pmird database) (Teickner and Knorr 2025). ‘pmird’ allows to access the
+pmird database as [`dm`](https://dm.cynkra.com/reference/dm.html)
+object.
 
 The pmird package can be installed as follows:
 
@@ -28,10 +28,10 @@ The pmird package can be installed as follows:
 remotes::install_github("henningte/pmird")
 ```
 
-The pmird database can be downloaded from Zotero (Teickner, Pebesma, and
-Knorr 2025). The downloaded database needs to be imported in a running
-MariaDB instance. In a linux terminal, the downloaded sql file can be
-imported like so:
+The pmird database can be downloaded from Zotero (Teickner and Knorr
+2025). The downloaded database needs to be imported in a running MariaDB
+instance. In a linux terminal, the downloaded sql file can be imported
+like so:
 
 ``` bash
 mysql -u<user> -p<password> pmird < pmird-backup-2025-04-03.sql
@@ -215,7 +215,7 @@ here.
 
 Please cite this compendium as:
 
-> Authors, (2025). _Compendium of R code and data for Title of your paper goes here_. Accessed 08 Apr 2025. Online at <https://doi.org/xxx/xxx>
+> Authors, (2025). _Compendium of R code and data for Title of your paper goes here_. Accessed 14 Apr 2025. Online at <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
@@ -300,8 +300,8 @@ to Analyze Mid-Infrared Spectra of Peat Samples.” Zenodo.
 
 <div id="ref-Teickner.2025c">
 
-Teickner, Henning, Edzer Pebesma, and Klaus-Holger Knorr. 2025.
-“Peatland Mid Infrared Spectra Database.”
+Teickner, Henning, and Klaus-Holger Knorr. 2025. “Peatland Mid Infrared
+Spectra Database.”
 
 </div>
 
